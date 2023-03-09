@@ -200,16 +200,21 @@ void MainWindow::on_actionItem_Options_triggered()
 
 
     if (dialog.exec() == QDialog::Accepted) {
+
+        // gets values of model part to the inputted values from the option dialog
         QString name = dialog.objectNameChanged();
         int RGB1 = dialog.getRGB1Value();
         int RGB2 = dialog.getRGB2Value();
         int RGB3 = dialog.getRGB3Value();
         bool Visible = dialog.isVisible();
 
+        // change the CAD file properties ie make the changes appear on the GUI
+        selectedPart->getActor()->SetVisibility(Visible);
+ //       selectedPart->getActor()->GetMapper()->SetColorMode(RGB1, RGB2, RGB3);
+        
 
 
-
-
+        // prints new variables in menu
         selectedPart->set(0, name);
         selectedPart->setColour(RGB1, RGB2, RGB3);
         selectedPart->setVisible(Visible);
@@ -227,7 +232,7 @@ void MainWindow::on_actionItem_Options_triggered()
         emit statusUpdateMessage(QString(name) + " " + QString::number(RGB1) + " " + QString::number(RGB2) + " " + QString::number(RGB3) + " " + (Visible ? "True" : "False"), 0);
 
 
-
+        updateRender();
 
 
     }
