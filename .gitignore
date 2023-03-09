@@ -15,12 +15,16 @@
 *.vcxproj
 *.vcxproj.filters
 *.sln
+*.html
+
 
 *.cmake
 *.stamp
 *.cpp.d
 
 build/
+html/
+latex/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
