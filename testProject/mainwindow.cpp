@@ -171,7 +171,7 @@ void MainWindow::on_actionOpen_File_triggered()
 
     renderer->ResetCamera();
     renderer->GetActiveCamera()->SetPosition(0, 0, 1000);
-    renderer->GetActiveCamera()->SetFocalPoint(0, 0, -1000);
+    renderer->GetActiveCamera()->SetFocalPoint(0, 0, 1);
     renderer->GetActiveCamera()->SetViewUp(0, 1, 0);
     renderer->ResetCameraClippingRange();
 
@@ -210,7 +210,7 @@ void MainWindow::on_actionItem_Options_triggered()
 
         // change the CAD file properties ie make the changes appear on the GUI
         selectedPart->getActor()->SetVisibility(Visible);
- //       selectedPart->getActor()->GetMapper()->SetColorMode(RGB1, RGB2, RGB3);
+        selectedPart->getActor()->GetProperty()->SetColor(RGB1, RGB2, RGB3);
         
 
 
