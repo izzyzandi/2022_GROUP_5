@@ -191,7 +191,8 @@ void MainWindow::on_actionOpen_File_triggered()
 
     // Load the selected file into the new model part
     childChildItem->loadSTL(fileName);
-
+    
+    
    // selectedPart->set(0, fi.fileName());
     emit statusUpdateMessage(QString(fileName), 0);
 
@@ -205,6 +206,9 @@ void MainWindow::on_actionOpen_File_triggered()
     // Update the renderer with the new changes
     updateRender();
 
+    // makes the object auto white but change later to the actual colour
+    childChildItem->setColour(1, 1, 1);
+    
 }
 
 void MainWindow::on_actionItem_Options_triggered()
@@ -315,10 +319,14 @@ void MainWindow::on_actionOpen_Directory_triggered()
         selectedPart->appendChild(childChildItem);
 
         // Print a debug message to indicate the file being added
-        qDebug() << "Trying to add file: " << address;
+//        qDebug() << "Trying to add file: " << address;
 
         // Load the STL file for the child ModelPart object
         childChildItem->loadSTL(address);
+
+        childChildItem->setColour(1, 1, 1);
+        
+
     }
 
     // Reset the camera position and other view parameters for the renderer
