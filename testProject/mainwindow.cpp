@@ -4,6 +4,8 @@
 #include "./ui_optiondialog.h"
 #include <QMessageBox>
 #include <QApplication>
+#include <QDir>
+#include <QDirIterator>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -209,8 +211,11 @@ void MainWindow::on_actionItem_Options_triggered()
         bool Visible = dialog.isVisible();
 
         // change the CAD file properties ie make the changes appear on the GUI
-        selectedPart->getActor()->SetVisibility(Visible);
-        selectedPart->getActor()->GetProperty()->SetColor(RGB1, RGB2, RGB3);
+        if (selectedPart->getActor()) {
+            selectedPart->getActor()->SetVisibility(Visible);
+            selectedPart->getActor()->GetProperty()->SetColor(RGB1, RGB2, RGB3);
+        }
+        else return;
         
 
 
@@ -240,7 +245,56 @@ void MainWindow::on_actionItem_Options_triggered()
         emit statusUpdateMessage(QString("Dialog rejected"), 0);
     }
 }
-    void MainWindow::updateRender() {
+
+void MainWindow::on_actionOpen_Directory_triggered()
+{
+    QDir dir = QFileDialog::getExistingDirectory(
+        this,
+        tr("Open Directory"),
+        "C:\\"
+
+    );
+    // find directory path
+    QDir directory(dir.path());
+    // get the files in directory
+    QStringList files = directory.entryList(QStringList() << "*.stl", QDir::Files);
+    // load the files one by one
+    foreach(QString fileName, files) {
+        QModelIndex index = ui->treeView->currentIndex();
+
+        /* Get a pointer to the item from the index*/
+
+        ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+        QString address = dir.path() + "/"+fileName;
+        QFileInfo fi(fileName);
+        
+        // when adding in CAD files 
+
+        QString name = fi.fileName();
+        QString visible("true");
+        ModelPart* childChildItem = new ModelPart({ name,visible });
+
+        /* Append to parent*/
+        selectedPart->appendChild(childChildItem);
+        qDebug() << "Trying to add file: " << address;
+        childChildItem->loadSTL(address);
+    }
+
+
+
+    renderer->ResetCamera();
+    renderer->GetActiveCamera()->SetPosition(0, 0, 1000);
+    renderer->GetActiveCamera()->SetFocalPoint(0, 0, 1);
+    renderer->GetActiveCamera()->SetViewUp(0, 1, 0);
+    renderer->ResetCameraClippingRange();
+
+    updateRender();
+
+    emit statusUpdateMessage(QString(dir.path()), 0);
+}
+
+
+void MainWindow::updateRender() {
         renderer->RemoveAllViewProps();
         updateRenderFromTree(partList->index(0, 0, QModelIndex()));
         renderer->Render();
@@ -248,7 +302,7 @@ void MainWindow::on_actionItem_Options_triggered()
         renderWindow->Render();
         ui->vtkWidget->repaint();
     }
-    void MainWindow::updateRenderFromTree(const QModelIndex & index) {
+void MainWindow::updateRenderFromTree(const QModelIndex & index) {
         if (index.isValid()) {
             ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
             renderer->AddActor(selectedPart->getActor());
@@ -265,3 +319,4 @@ void MainWindow::on_actionItem_Options_triggered()
         }
         
     }
+

@@ -92,6 +92,7 @@
      <string>file</string>
     </property>
     <addaction name="actionOpen_File"/>
+    <addaction name="actionOpen_Directory"/>
    </widget>
    <addaction name="menufile"/>
   </widget>
@@ -106,6 +107,8 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionOpen_File"/>
+   <addaction name="actionOpen_Directory"/>
   </widget>
   <action name="actionOpen_File">
    <property name="icon">
@@ -119,6 +122,15 @@
   <action name="actionItem_Options">
    <property name="text">
     <string>Item_Options</string>
+   </property>
+  </action>
+  <action name="actionOpen_Directory">
+   <property name="icon">
+    <iconset theme="folder-open" resource="Icons.qrc">
+     <normaloff>:/Icons/Icons/open directory icon.png</normaloff>:/Icons/Icons/open directory icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Directory</string>
    </property>
   </action>
  </widget>
