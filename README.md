@@ -1,6 +1,6 @@
 Group members: Isabelle Zandi, Adbul Rehman, Haneen Suliman, Siya Shetty, Khalifah Kh J E Aljasem
 
-This project aims to incorporate virtual reality with an interface that loads the formula student car and allows you to alter aspects such as colour, visibility and name.The graphical user interface (GUI) application allows users to load the formula car CAD models and make modifications to them. The software provides a standard 3D view of the model, as well as tools for changing part color, adding and removing parts, and applying special effects to parts.
+This project aims to incorporate virtual reality with an interface that loads the formula student car and allows you to alter aspects such as colour, visibility and name.The graphical user interface (GUI) allows users to load the formula car CAD models and make modifications to them. The software provides a standard 3D view of the model, as well as tools for changing part color, adding and removing parts, and applying special effects to parts.
 
 System Requirements
 
