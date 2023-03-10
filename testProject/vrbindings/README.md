@@ -8,8 +8,5 @@ To use these bindings in a VR application, simply copy the desired .json file(s)
 Once the .json file(s) have been added to your project, you can load them at runtime and use them to map physical inputs to actions within your application.
 
 
-Available bindings 
-The following .json files are available 
 
-o
 
