@@ -6,6 +6,8 @@
 #include <QApplication>
 #include <QDir>
 #include <QDirIterator>
+#include <QTimer>
+#include <QColor>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -79,6 +81,8 @@ MainWindow::MainWindow(QWidget *parent)
     renderer->GetActiveCamera()->Azimuth(30);
     renderer->GetActiveCamera()->Elevation(30);
     renderer->ResetCameraClippingRange();
+
+  
 }
 
 void MainWindow::handleButton() {
@@ -104,33 +108,33 @@ void MainWindow::handleButton() {
 }
 
 void MainWindow::handleButton2() {
-    // Create several instances of the optionDialog class
-    optionDialog dialog(this);
-    optionDialog visible(this);
-    optionDialog RGB1(this);
-    optionDialog RGB2(this);
-    optionDialog RGB3(this);
-
-
-    // Display the dialog and wait for the user to close it
-    if (dialog.exec() == QDialog::Accepted) {
-        // Get the values entered by the user in the dialog
-        QString name = dialog.objectNameChanged();
-        int RGB1 = dialog.getRGB1Value();
-        int RGB2 = dialog.getRGB1Value();
-        int RGB3 = dialog.getRGB1Value();
-        bool Visible = dialog.isVisible();
-        
-        // Emit a signal to update the status bar with the values entered by the user
-        emit statusUpdateMessage(QString(name)+" " + QString::number(RGB1) +" " + QString::number(RGB2) + " " + QString::number(RGB3) +" "+ (Visible ? "True" : "False"), 0);
-        
-    }
-    else {
-        // If the user clicked "Cancel" in the dialog, display a message in the status bar
-        emit statusUpdateMessage(QString("Dialog rejected"), 0);
-    }
+    
 
     
+    QTimer* timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::changeColour);
+    timer->start(100); // update color every 100 milliseconds
+
+    
+
+
+  
+}
+
+void MainWindow::changeColour() {
+
+    /* Get the index of the selected item in the tree view*/
+    QModelIndex index = ui->treeView->currentIndex();
+    /* Get a pointer to the item from the index*/
+    //Get a pointer to the ModelPart object represented by the selected item
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    static int hue = 0; // hue ranges from 0 to 360 degrees
+    QColor color = QColor::fromHsv(hue, 255, 255); // convert hue to RGB color
+    int red, green, blue;
+    color.getRgb(&red, &green, &blue); // get the RGB values of the color
+    selectedPart->getActor()->GetProperty()->SetColor(red, blue, green);
+    hue = (hue + 5) % 360; // increment hue by 5 degrees
+    updateRender();
 }
 
 void MainWindow::handleTreeClick() {

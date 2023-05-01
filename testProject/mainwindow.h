@@ -47,6 +47,7 @@ private:
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
     
+    void changeColour();
    // VRRenderThread* VRThread;
 };
 #endif // MAINWINDOW_H
