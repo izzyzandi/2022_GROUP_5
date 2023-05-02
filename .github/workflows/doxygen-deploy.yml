@@ -7,7 +7,7 @@ on:
     # name (this might be "main" rather than "master")
 
 jobs:
-  # The job that will build testDoxygen
+  # The job that will build testDoxygen.
   deploy-testDoxygen:
     # Defines the operating system for the virtual machine
     runs-on: ubuntu-latest
