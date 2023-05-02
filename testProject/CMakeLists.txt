@@ -19,12 +19,12 @@ set(PROJECT_SOURCES
       mainwindow.cpp
       mainwindow.h
       mainwindow.ui
-	  ModelPart.cpp
-	  ModelPart.h
-	  ModelPartList.h
-	  ModelPartList.cpp
+	ModelPart.cpp
+      ModelPart.h
+      ModelPartList.h
+      ModelPartList.cpp
       Icons.qrc
-	  optiondialog.h
+      optiondialog.h
       optiondialog.cpp 
       optiondialog.ui
       VRRenderThread.h
@@ -78,3 +78,22 @@ add_custom_target(VRBindings)
 add_custom_command(TARGET VRBindings PRE_BUILD
 COMMAND ${CMAKE_COMMAND} -E
 		copy_directory ${CMAKE_SOURCE_DIR}/vrbindings ${CMAKE_BINARY_DIR}/ )
+
+
+# INSTALLER
+
+
+include(InstallRequiredSystemLibraries) 
+set(CPACK_PACKAGE_NAME "stl_file_renderer") 
+#set(CPACK_PACKAGE_VERSION "1.0.0") 
+#set(CPACK_PACKAGE_CONTACT "Your Name your.email@example.com") 
+#set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "stl file renderer - A short description") 
+#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt") 
+set(CPACK_GENERATOR "NSIS") 
+# Use NSIS for a Windows installer 
+include(CPack)
+install(TARGETS testProject RUNTIME DESTINATION bin)
+#install(FILES "D:/software/6.4.2/msvc2019_64/bin/Qt6Core.dll" DESTINATION bin) 
+install(DIRECTORY "D:/software/6.4.2/msvc2019_64/bin" DESTINATION QT PATTERN "*.exe" EXCLUDE) 
+install(DIRECTORY "C:/Program Files (x86)/VTK/bin" DESTINATION VTK PATTERN "*.exe" EXCLUDE)
+install(DIRECTORY "C:/Users/izzy/Downloads/Level0/Level0" DESTINATION level0)
