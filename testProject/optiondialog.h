@@ -31,7 +31,7 @@ public:
     // Constructor which has the QWidget as the parent and is set to nullptr in the case where there is no parent provided
     explicit optionDialog(QWidget *parent = nullptr);
 
-    /** Destructor
+    /** Deconstructor
       *  Frees root item allocated in constructor
       */
     // Deconstructor
