@@ -7,8 +7,8 @@ on:
     # name (this might be "main" rather than "master")
 
 jobs:
-  # The job that will build testDoxygen.
-  deploy-testDoxygen:
+  # The job that will build testProject
+  deploy-testProject:
     # Defines the operating system for the virtual machine
     runs-on: ubuntu-latest
 
@@ -24,7 +24,7 @@ jobs:
       
       # Run Doxygen on testDoxygen folder
       - name: Run Doxygen
-        working-directory: ${{ github.workspace }}/testDoxygen
+        working-directory: ${{ github.workspace }}/testProject
         run: doxygen
       
       # Deploy html output from Doxygen to gh-pages branch
@@ -34,4 +34,4 @@ jobs:
           # The branch the action should deploy to.
           branch: gh-pages
           # The folder the action should deploy.
-          folder: ${{ github.workspace }}/testDoxygen/html
+          folder: ${{ github.workspace }}/testProject/html
