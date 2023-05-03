@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['set_30',['set',['../classModelPart.html#a3232893d070ddcec42631bf5b043add8',1,'ModelPart']]],
-  ['setcolour_31',['setColour',['../classModelPart.html#abbaaa19d7d24b9f1138072d594bd838c',1,'ModelPart']]],
-  ['setvisible_32',['setVisible',['../classModelPart.html#a96c8cca32bd530bf28c6ab6a1ccc2353',1,'ModelPart']]]
+  ['mainwindow_86',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
+  ['modelpart_87',['ModelPart',['../classModelPart.html#a4f22ba9a54525edde005cb4eb7366648',1,'ModelPart']]],
+  ['modelpartlist_88',['ModelPartList',['../classModelPartList.html#a039afc4b526b377bd346e8ea5b2d027d',1,'ModelPartList']]]
 ];
