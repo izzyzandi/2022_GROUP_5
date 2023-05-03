@@ -45,7 +45,7 @@ public:
     // Constructor which initializes teh QWidget parent in order create a 3D render it also initializes the ModelPartList
     MainWindow(QWidget *parent = nullptr);
 
-    /**Denstructor
+    /**Deconstructor
     */
     // Deconstructor will help to free any dynamic allocated memory
     ~MainWindow();

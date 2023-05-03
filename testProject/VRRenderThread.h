@@ -50,7 +50,7 @@ public:
       */
     VRRenderThread(QObject* parent = nullptr);
 
-    /**  Denstructor
+    /**  Deconstructor
       */
     ~VRRenderThread();
 
