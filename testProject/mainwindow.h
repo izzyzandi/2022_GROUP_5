@@ -31,6 +31,8 @@ public:
 public slots:
     void handleButton();
     void handleButton2();
+    void checkbox1();
+    void checkbox2();
     void handleTreeClick();
 signals:
     void statusUpdateMessage(const QString &message, int timeout);

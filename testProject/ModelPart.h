@@ -128,6 +128,10 @@ public:
       */
     vtkActor* getNewActor();
 
+    vtkSmartPointer<vtkMapper> getMapper();
+
+    void setFilterAndActor(int x);
+  
     bool get_visible();
 
 private:

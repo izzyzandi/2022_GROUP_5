@@ -15,6 +15,10 @@
  */
 #include <vtkSmartPointer.h>
 #include <vtkDataSetMapper.h>
+#include <vtkPlane.h>
+#include <vtkClipPolyData.h>
+#include <vtkClipDataSet.h>
+#include <vtkShrinkFilter.h>
 
 
 
@@ -143,31 +147,60 @@ bool ModelPart::get_visible() {
     return isVisible;
 }
 
-void ModelPart::loadSTL( QString fileName ) {
+void ModelPart::loadSTL(QString fileName) {
     /* This is a placeholder function that will be used in the next worksheet */
-    
-    /* 1. Use the vtkSTLReader class to load the STL file 
+
+    /* 1. Use the vtkSTLReader class to load the STL file
      * //    https://vtk.org/doc/nightly/html/classvtkSTLReader.html
      */
 
     file = vtkNew<vtkSTLReader>();
-   
-    file->SetFileName(fileName.toStdString().c_str());
-   
-    /* 2. Initialise the part's vtkMapper */
-    mapper = vtkNew<vtkPolyDataMapper>();
-    mapper->SetInputConnection(file->GetOutputPort());
 
-    /* 3. Initialise the part's vtkActor and link to the mapper */
+    file->SetFileName(fileName.toStdString().c_str());
+
+    /* 2. Initialise the part's vtkMapper */
+        mapper = vtkNew<vtkDataSetMapper>();
+
+
+    setFilterAndActor(0);
+}
+
+void ModelPart::setFilterAndActor(int x) {
+
+
+    /* 2b -> insert filter(s) */
+    if (x == 1) {
+        vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
+        planeLeft->SetOrigin(0, 0, 0);
+        planeLeft->SetNormal(0, 1, 0);
+
+        vtkSmartPointer<vtkClipDataSet> clipFilter = vtkSmartPointer<vtkClipDataSet>::New();
+        clipFilter->SetInputConnection(file->GetOutputPort());
+        clipFilter->SetClipFunction(planeLeft.Get());//
+        mapper->SetInputConnection(clipFilter->GetOutputPort());
+       
+    }
+    else if (x == 2) {
+        vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
+        shrinkFilter->SetInputConnection(file->GetOutputPort());
+        shrinkFilter->SetShrinkFactor(.5);
+        shrinkFilter->Update();
+        mapper->SetInputConnection(shrinkFilter->GetOutputPort());
+    }
+    else {
+        /* 3. Initialise the part's vtkActor and link to the mapper */
+        mapper->SetInputConnection(file->GetOutputPort());
+    }
     actor = vtkNew<vtkActor>();
     actor->SetMapper(mapper);
+    
 
-    actor->AddPosition(-150, -50, -100);
-
+ //   actor->AddPosition(-150, -50, -100);
+    actor->AddPosition(0, 0, 0);
   
-
-
 }
+
+
 
 vtkSmartPointer<vtkActor> ModelPart::getActor() {
     /* This is a placeholder function that will be used in the next worksheet */
@@ -175,6 +208,10 @@ vtkSmartPointer<vtkActor> ModelPart::getActor() {
     /* Needs to return a smart pointer to the vtkActor to allow
      * part to be rendered.
      */
+}
+
+vtkSmartPointer<vtkMapper> ModelPart::getMapper() {
+    return mapper;
 }
 
 vtkActor* ModelPart::getNewActor() {
