@@ -1,22 +1,24 @@
 /**		@file VRRenderThread.h
   *
-  *		EEEE2046 - Software Engineering & VR Project
-  *
-  *		Template to add VR rendering to your application.
-  *
-  *		P Evans 2022
+  *		The following code depicts the header file for the class "VRRenderThread"  which is inherited from the QThread Class.
+  *     The code allows one to run a parallel thread to the main thread for the QT framework.
+  *     The class is designed in a format to handle the rendering of 3D visualization using VTTK libraries and OpenVR
+  *     The class incooroated many private memeber variables whichi is used for the rendering, interaction with the window, camera and a group of actors.
+  *     The use of the mutex and wait condition allows the data to be passed smoothing between the threads.
+  *     The class also has several public functions: constructor, deconstructor, function to add more actors
+  *     Additionally, the class also hasa  list of several commands which xan be issued to the thread to allow the model to rotate along the three coordinate - planes
   */
 #ifndef VR_RENDER_THREAD_H
 #define VR_RENDER_THREAD_H
 
 /* Project headers */
 
-/* Qt headers */
+/** Qt headers */
 #include <QThread>
 #include <QMutex>
 #include <QWaitCondition>
 
-/* Vtk headers */
+/** Vtk headers */
 #include <vtkActor.h>
 #include <vtkOpenVRRenderWindow.h>				
 #include <vtkOpenVRRenderWindowInteractor.h>	
@@ -27,7 +29,7 @@
 
 
 
-/* Note that this class inherits from the Qt class QThread which allows it to be a parallel thread
+/** Note that this class inherits from the Qt class QThread which allows it to be a parallel thread
  * to the main() thread.
  */
 class VRRenderThread : public QThread {
@@ -44,6 +46,7 @@ public:
 
 
     /**  Constructor
+    * @param the parent object of the trend
       */
     VRRenderThread(QObject* parent = nullptr);
 

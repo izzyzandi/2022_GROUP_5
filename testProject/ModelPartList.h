@@ -1,10 +1,9 @@
 /**     @file ModelPartList.h
-  *
-  *     EEEE2046 - Software Engineering & VR Project
-  *
-  *     Template for model part list that will be used to create the trewview.
-  *
-  *     P Evans 2022
+  *     The following code depicts the header file for the class "ModelPartList" which is inherited from the "QAbstractItemModel" used to create a tree view.
+  *     The file incorportated header filles including ModelPart.h.
+  *     The ModelPart class constains a private member variable "rootItem", which indicated the pointer to the root item in the tree.
+  *     The class contains a constructors "QString" object and "QObject" pointer, on the other hand the deconstructor allows the root item to be allocated in the constructor.
+  *     The class has several members: columnCount(), data(). flags(), headerData(), index(), parent(), rowCount(), getRootItem() and appendChild().
   */
   
 #ifndef VIEWER_MODELPARTLIST_H
