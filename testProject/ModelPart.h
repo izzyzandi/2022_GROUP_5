@@ -132,15 +132,15 @@ public:
     bool get_visible();
 
 private:
-    QList<ModelPart*>                           m_childItems;       /**< List (array) of child items */
-    QList<QVariant>                             m_itemData;         /**< List (array of column data for item */
+    QList<ModelPart*>                           m_childItems;       /** List (array) of child items */
+    QList<QVariant>                             m_itemData;         /** List (array of column data for item */
     ModelPart* m_parentItem;       /**< Pointer to parent */
 
     /* These are some typical properties that I think the part will need, you might
      * want to add you own.
      */
     QString name;
-    bool isVisible;          /**< True/false to indicate if should be visible in model rendering */
+    bool isVisible;          /** True/false to indicate if should be visible in model rendering */
     unsigned char RGB1 = 0;
     unsigned char RGB2 = 0;
     unsigned char RGB3 = 0;
