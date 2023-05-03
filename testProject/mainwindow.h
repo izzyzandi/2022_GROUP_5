@@ -62,23 +62,24 @@ public:
     *   @param index representing the tree-view
     */
     void updateRenderFromTree(const QModelIndex& index);
-
+    
+/** Private slots
+* The slots are used to handle user interface with the help of buttons and the tree-view
+*/
 public slots:
-    /** Private slots
-    * The slots are used to handle user interface with the help of buttons and the tree-view
-    */
-    void handleButton();
     /**
     *   @brief It is a slot function which has the ability to handle the first button click
     */
-    void handleButton2();
+    void handleButton();
     /**
     *   @brief It is a slot function which has the ability to handle the second button click
     */
-    void handleTreeClick();
+    void handleButton2();
     /**
     *   @brief It is a slot function which has the ability to handle the tree-view event
     */
+    void handleTreeClick();
+    
 signals:
     /** 
     *   @brief It is a signal which is used to send status updates on to the main window
@@ -87,10 +88,10 @@ signals:
     */
     void statusUpdateMessage(const QString &message, int timeout);
 
+/** Private slots
+* slot opens the file dialog box, option dialog box and directory dialog box
+*/
 private slots:
-    /**Private slots
-        * slot opens the file dialog box, option dialog box and directory dialog box
-    */
     void on_actionOpen_File_triggered();
     /**
     *   @brief It is the slot function which opens the file dialog box
@@ -114,10 +115,11 @@ private:
     vtkSmartPointer<vtkRenderer> renderer; // render the 3D visualization
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow; // provide an independent interface with OpenGL render window
     
+    void changeColour();
     /**
     *   @brief function used to change the colour of the presently selected model part in the form of a 3D visulaization
     */
-    void changeColour();
+
    // VRRenderThread* VRThread;
 };
 #endif // MAINWINDOW_H
