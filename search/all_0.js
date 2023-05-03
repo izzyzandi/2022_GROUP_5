@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['addactoroffline_0',['addActorOffline',['../classVRRenderThread.html#a17bb943e3b852339398cfbb7cb12cf13',1,'VRRenderThread']]],
-  ['appendchild_1',['appendChild',['../classModelPart.html#a52074db110367665c3e262919e172c98',1,'ModelPart']]]
+  ['actor_0',['actor',['../classModelPart.html#aa0bc06d06f0976fef26bcbd721e71784',1,'ModelPart']]],
+  ['actors_1',['actors',['../classVRRenderThread.html#a5832d6c13b68f1f4999bd46c67b94008',1,'VRRenderThread']]],
+  ['addactoroffline_2',['addActorOffline',['../classVRRenderThread.html#a17bb943e3b852339398cfbb7cb12cf13',1,'VRRenderThread']]],
+  ['appendchild_3',['appendChild',['../classModelPart.html#a52074db110367665c3e262919e172c98',1,'ModelPart']]]
 ];

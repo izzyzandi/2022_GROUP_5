@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classModelPart-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ModelPart Class Reference</div>  </div>
@@ -102,7 +103,7 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>getColourG</
 <tr class="memitem:a2cae1e4fd951f1a5f62b93a7f9c68521"><td class="memItemLeft" align="right" valign="top"><a id="a2cae1e4fd951f1a5f62b93a7f9c68521"></a>
 unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>getColourB</b> ()</td></tr>
 <tr class="separator:a2cae1e4fd951f1a5f62b93a7f9c68521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c8cca32bd530bf28c6ab6a1ccc2353"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a96c8cca32bd530bf28c6ab6a1ccc2353">setVisible</a> (bool isVisible)</td></tr>
+<tr class="memitem:a96c8cca32bd530bf28c6ab6a1ccc2353"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a96c8cca32bd530bf28c6ab6a1ccc2353">setVisible</a> (bool <a class="el" href="classModelPart.html#afb6c0b2de4c0c4578d6a30ade18bada1">isVisible</a>)</td></tr>
 <tr class="separator:a96c8cca32bd530bf28c6ab6a1ccc2353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ae791107c322f3e729a8de69257fa4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a6ae791107c322f3e729a8de69257fa4b">visible</a> ()</td></tr>
 <tr class="separator:a6ae791107c322f3e729a8de69257fa4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,6 +116,52 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>getColourB</
 <tr class="memitem:ada18f1720e2325078284da05e7830294"><td class="memItemLeft" align="right" valign="top"><a id="ada18f1720e2325078284da05e7830294"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>get_visible</b> ()</td></tr>
 <tr class="separator:ada18f1720e2325078284da05e7830294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a45a256a6dbd005e5ba1ff96e89a168a0"><td class="memItemLeft" align="right" valign="top"><a id="a45a256a6dbd005e5ba1ff96e89a168a0"></a>
+QList&lt; <a class="el" href="classModelPart.html">ModelPart</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a45a256a6dbd005e5ba1ff96e89a168a0">m_childItems</a></td></tr>
+<tr class="memdesc:a45a256a6dbd005e5ba1ff96e89a168a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is m_childItem QList of a <a class="el" href="classModelPart.html">ModelPart</a> item <br /></td></tr>
+<tr class="separator:a45a256a6dbd005e5ba1ff96e89a168a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f3daa692aad1048c23b4bbe6cefc35"><td class="memItemLeft" align="right" valign="top">QList&lt; QVariant &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#ab1f3daa692aad1048c23b4bbe6cefc35">m_itemData</a></td></tr>
+<tr class="memdesc:ab1f3daa692aad1048c23b4bbe6cefc35"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is m_itemdata QList of a <a class="el" href="classModelPart.html">ModelPart</a> Item  <a href="classModelPart.html#ab1f3daa692aad1048c23b4bbe6cefc35">More...</a><br /></td></tr>
+<tr class="separator:ab1f3daa692aad1048c23b4bbe6cefc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4292a669f50f89ab70c51189ddad86ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classModelPart.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a4292a669f50f89ab70c51189ddad86ce">m_parentItem</a></td></tr>
+<tr class="memdesc:a4292a669f50f89ab70c51189ddad86ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is m_parentItem QList of a <a class="el" href="classModelPart.html">ModelPart</a> Item  <a href="classModelPart.html#a4292a669f50f89ab70c51189ddad86ce">More...</a><br /></td></tr>
+<tr class="separator:a4292a669f50f89ab70c51189ddad86ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf760c0844b3ab181de7eaa9f1c3a30"><td class="memItemLeft" align="right" valign="top"><a id="addf760c0844b3ab181de7eaa9f1c3a30"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#addf760c0844b3ab181de7eaa9f1c3a30">name</a></td></tr>
+<tr class="memdesc:addf760c0844b3ab181de7eaa9f1c3a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the name of the <a class="el" href="classModelPart.html">ModelPart</a> <br /></td></tr>
+<tr class="separator:addf760c0844b3ab181de7eaa9f1c3a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6c0b2de4c0c4578d6a30ade18bada1"><td class="memItemLeft" align="right" valign="top"><a id="afb6c0b2de4c0c4578d6a30ade18bada1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#afb6c0b2de4c0c4578d6a30ade18bada1">isVisible</a></td></tr>
+<tr class="memdesc:afb6c0b2de4c0c4578d6a30ade18bada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows whether the model rendering is visble of not by indicating it via True/False. <br /></td></tr>
+<tr class="separator:afb6c0b2de4c0c4578d6a30ade18bada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6df41f7dd04d7f190d8d3ec1f2bab3"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#afd6df41f7dd04d7f190d8d3ec1f2bab3">RGB1</a> = 0</td></tr>
+<tr class="memdesc:afd6df41f7dd04d7f190d8d3ec1f2bab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">RG1, RG2 and RG3 value for the ModelParts.  <a href="classModelPart.html#afd6df41f7dd04d7f190d8d3ec1f2bab3">More...</a><br /></td></tr>
+<tr class="separator:afd6df41f7dd04d7f190d8d3ec1f2bab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a21cf5cec26432324a7541eec1b08f"><td class="memItemLeft" align="right" valign="top"><a id="a21a21cf5cec26432324a7541eec1b08f"></a>
+unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>RGB2</b> = 0</td></tr>
+<tr class="separator:a21a21cf5cec26432324a7541eec1b08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6358c100009e49dcac207f0b68be170b"><td class="memItemLeft" align="right" valign="top"><a id="a6358c100009e49dcac207f0b68be170b"></a>
+unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>RGB3</b> = 0</td></tr>
+<tr class="separator:a6358c100009e49dcac207f0b68be170b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a852283506443761fb7b7f96588878e45"><td class="memItemLeft" align="right" valign="top"><a id="a852283506443761fb7b7f96588878e45"></a>
+vtkSmartPointer&lt; vtkSTLReader &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a852283506443761fb7b7f96588878e45">file</a></td></tr>
+<tr class="memdesc:a852283506443761fb7b7f96588878e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datafile from which part loaded. <br /></td></tr>
+<tr class="separator:a852283506443761fb7b7f96588878e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23fdcbf8e3ab39c09c3159d2d4665684"><td class="memItemLeft" align="right" valign="top"><a id="a23fdcbf8e3ab39c09c3159d2d4665684"></a>
+vtkSmartPointer&lt; vtkMapper &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a23fdcbf8e3ab39c09c3159d2d4665684">mapper</a></td></tr>
+<tr class="memdesc:a23fdcbf8e3ab39c09c3159d2d4665684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapper for rendering. <br /></td></tr>
+<tr class="separator:a23fdcbf8e3ab39c09c3159d2d4665684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bc06d06f0976fef26bcbd721e71784"><td class="memItemLeft" align="right" valign="top"><a id="aa0bc06d06f0976fef26bcbd721e71784"></a>
+vtkSmartPointer&lt; vtkActor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#aa0bc06d06f0976fef26bcbd721e71784">actor</a></td></tr>
+<tr class="memdesc:aa0bc06d06f0976fef26bcbd721e71784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actor for rendering. <br /></td></tr>
+<tr class="separator:aa0bc06d06f0976fef26bcbd721e71784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb30cc701a3132c91fe7cfb651366fe"><td class="memItemLeft" align="right" valign="top"><a id="aebb30cc701a3132c91fe7cfb651366fe"></a>
+vtkColor3&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#aebb30cc701a3132c91fe7cfb651366fe">colour</a></td></tr>
+<tr class="memdesc:aebb30cc701a3132c91fe7cfb651366fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">User defineable colour. <br /></td></tr>
+<tr class="separator:aebb30cc701a3132c91fe7cfb651366fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4f22ba9a54525edde005cb4eb7366648"></a>
@@ -486,6 +533,82 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>get_visible</b> ()</t
       </table>
 </div><div class="memdoc">
 <p>Get visible flag </p><dl class="section return"><dt>Returns</dt><dd>visible flag as boolean </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab1f3daa692aad1048c23b4bbe6cefc35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f3daa692aad1048c23b4bbe6cefc35">&#9670;&nbsp;</a></span>m_itemData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;QVariant&gt; ModelPart::m_itemData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>it is m_itemdata QList of a <a class="el" href="classModelPart.html">ModelPart</a> Item </p>
+<p>List (array) of child items </p>
+
+</div>
+</div>
+<a id="a4292a669f50f89ab70c51189ddad86ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4292a669f50f89ab70c51189ddad86ce">&#9670;&nbsp;</a></span>m_parentItem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classModelPart.html">ModelPart</a>* ModelPart::m_parentItem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>it is m_parentItem QList of a <a class="el" href="classModelPart.html">ModelPart</a> Item </p>
+<p>List (array of column data for item Pointer to parent </p>
+
+</div>
+</div>
+<a id="afd6df41f7dd04d7f190d8d3ec1f2bab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6df41f7dd04d7f190d8d3ec1f2bab3">&#9670;&nbsp;</a></span>RGB1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ModelPart::RGB1 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>RG1, RG2 and RG3 value for the ModelParts. </p>
+<p>True/false to indicate if should be visible in model rendering </p>
 
 </div>
 </div>

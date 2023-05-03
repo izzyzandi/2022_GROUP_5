@@ -66,6 +66,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classVRRenderThread-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">VRRenderThread Class Reference</div>  </div>
@@ -109,6 +110,43 @@ Public Attributes</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:af5bbbaf8625fc42278476a43bf018661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#af5bbbaf8625fc42278476a43bf018661">run</a> () override</td></tr>
 <tr class="separator:af5bbbaf8625fc42278476a43bf018661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8e73e14ace5b39ccd4579f0ff73c9f73"><td class="memItemLeft" align="right" valign="top"><a id="a8e73e14ace5b39ccd4579f0ff73c9f73"></a>
+vtkSmartPointer&lt; vtkOpenVRRenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
+<tr class="separator:a8e73e14ace5b39ccd4579f0ff73c9f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68aa4d27677d0ee4f86d38495f99ee15"><td class="memItemLeft" align="right" valign="top"><a id="a68aa4d27677d0ee4f86d38495f99ee15"></a>
+vtkSmartPointer&lt; vtkOpenVRRenderWindowInteractor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>interactor</b></td></tr>
+<tr class="separator:a68aa4d27677d0ee4f86d38495f99ee15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af394f7a62e015d125ef8778c80eb9799"><td class="memItemLeft" align="right" valign="top"><a id="af394f7a62e015d125ef8778c80eb9799"></a>
+vtkSmartPointer&lt; vtkOpenVRRenderer &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
+<tr class="separator:af394f7a62e015d125ef8778c80eb9799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4b555a1579eb74f3eb6b0c32a5ae24"><td class="memItemLeft" align="right" valign="top"><a id="a1e4b555a1579eb74f3eb6b0c32a5ae24"></a>
+vtkSmartPointer&lt; vtkOpenVRCamera &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
+<tr class="separator:a1e4b555a1579eb74f3eb6b0c32a5ae24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25df6d9540a8639e394f18740e9c9c2"><td class="memItemLeft" align="right" valign="top"><a id="ab25df6d9540a8639e394f18740e9c9c2"></a>
+QMutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex</b></td></tr>
+<tr class="separator:ab25df6d9540a8639e394f18740e9c9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5900f14cb28ad24b7051d09e28b3627"><td class="memItemLeft" align="right" valign="top"><a id="ae5900f14cb28ad24b7051d09e28b3627"></a>
+QWaitCondition&#160;</td><td class="memItemRight" valign="bottom"><b>condition</b></td></tr>
+<tr class="separator:ae5900f14cb28ad24b7051d09e28b3627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5832d6c13b68f1f4999bd46c67b94008"><td class="memItemLeft" align="right" valign="top">vtkSmartPointer&lt; vtkActorCollection &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a5832d6c13b68f1f4999bd46c67b94008">actors</a></td></tr>
+<tr class="separator:a5832d6c13b68f1f4999bd46c67b94008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d077b7cbd528a1f77328e874929067"><td class="memItemLeft" align="right" valign="top">std::chrono::time_point&lt; std::chrono::steady_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a14d077b7cbd528a1f77328e874929067">t_last</a></td></tr>
+<tr class="separator:a14d077b7cbd528a1f77328e874929067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0cfa093ea2283e29faa7a924e1e8a3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#af0cfa093ea2283e29faa7a924e1e8a3f">endRender</a></td></tr>
+<tr class="separator:af0cfa093ea2283e29faa7a924e1e8a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e59566a4f20575f8d4ea5b04478073"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a62e59566a4f20575f8d4ea5b04478073">rotateX</a></td></tr>
+<tr class="separator:a62e59566a4f20575f8d4ea5b04478073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef5af3645f0311e62e15003b0d78ac3"><td class="memItemLeft" align="right" valign="top"><a id="a1ef5af3645f0311e62e15003b0d78ac3"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a1ef5af3645f0311e62e15003b0d78ac3">rotateY</a></td></tr>
+<tr class="memdesc:a1ef5af3645f0311e62e15003b0d78ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees to rotate around X axis (per time-step) <br /></td></tr>
+<tr class="separator:a1ef5af3645f0311e62e15003b0d78ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a608732e550badec919426da6391912bd"><td class="memItemLeft" align="right" valign="top"><a id="a608732e550badec919426da6391912bd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a608732e550badec919426da6391912bd">rotateZ</a></td></tr>
+<tr class="memdesc:a608732e550badec919426da6391912bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees to rotate around Y axis (per time-step) <br /></td></tr>
+<tr class="separator:a608732e550badec919426da6391912bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Qt headers Vtk headers Note that this class inherits from the Qt class QThread which allows it to be a parallel thread to the main() thread. </p>
@@ -247,6 +285,29 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5832d6c13b68f1f4999bd46c67b94008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5832d6c13b68f1f4999bd46c67b94008">&#9670;&nbsp;</a></span>actors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vtkSmartPointer&lt;vtkActorCollection&gt; VRRenderThread::actors</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>List of actors that will need to be added to the VR scene </p>
+
+</div>
+</div>
 <a id="a887ba74b8a5b02f927e4564049b85ffb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a887ba74b8a5b02f927e4564049b85ffb">&#9670;&nbsp;</a></span></h2>
 
@@ -259,6 +320,75 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>List of command names </p>
+
+</div>
+</div>
+<a id="af0cfa093ea2283e29faa7a924e1e8a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0cfa093ea2283e29faa7a924e1e8a3f">&#9670;&nbsp;</a></span>endRender</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VRRenderThread::endRender</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This will be set to false by the constructor, if it is set to true by the GUI then the rendering will end </p>
+
+</div>
+</div>
+<a id="a62e59566a4f20575f8d4ea5b04478073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e59566a4f20575f8d4ea5b04478073">&#9670;&nbsp;</a></span>rotateX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VRRenderThread::rotateX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Variable List Some variables to indicate animation actions to apply. </p>
+
+</div>
+</div>
+<a id="a14d077b7cbd528a1f77328e874929067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d077b7cbd528a1f77328e874929067">&#9670;&nbsp;</a></span>t_last</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::time_point&lt;std::chrono::steady_clock&gt; VRRenderThread::t_last</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A timer to help implement animations and visual effects </p>
 
 </div>
 </div>
