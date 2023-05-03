@@ -3,10 +3,10 @@
   *		The following code depicts the header file for the class "VRRenderThread"  which is inherited from the QThread Class.
   *     The code allows one to run a parallel thread to the main thread for the QT framework.
   *     The class is designed in a format to handle the rendering of 3D visualization using VTTK libraries and OpenVR
-  *     The class incooroated many private memeber variables whichi is used for the rendering, interaction with the window, camera and a group of actors.
+  *     The class incooroated many private memeber variables which is used for the rendering, interaction with the window, camera and a group of actors.
   *     The use of the mutex and wait condition allows the data to be passed smoothing between the threads.
   *     The class also has several public functions: constructor, deconstructor, function to add more actors
-  *     Additionally, the class also hasa  list of several commands which xan be issued to the thread to allow the model to rotate along the three coordinate - planes
+  *     Additionally, the class also hasa  list of several commands which can be issued to the thread to allow the model to rotate along the three coordinate - planes
   */
 #ifndef VR_RENDER_THREAD_H
 #define VR_RENDER_THREAD_H
@@ -94,12 +94,21 @@ private:
       */
     bool                                                endRender;
 
-    /* Some variables to indicate animation actions to apply.
-     *
+    /** Variable List
+     *   Some variables to indicate animation actions to apply.
      */
-    double rotateX;         /*< Degrees to rotate around X axis (per time-step) */
-    double rotateY;         /*< Degrees to rotate around Y axis (per time-step) */
-    double rotateZ;         /*< Degrees to rotate around Z axis (per time-step) */
+    double rotateX;         
+    /**
+    * @brief Degrees to rotate around X axis (per time-step) 
+    */
+    double rotateY;        
+    /**
+    * @brief Degrees to rotate around Y axis (per time-step)
+    */
+    double rotateZ;
+    /**
+    *   @brief Degrees to rotate around Z axis (per time-step) 
+    */
 };
 
 
