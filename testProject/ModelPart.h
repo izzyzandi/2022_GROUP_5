@@ -132,15 +132,38 @@ public:
     bool get_visible();
 
 private:
+    /**
+    *   @brief it is m_childItem QList of a ModelPart item
+    */
     QList<ModelPart*>                           m_childItems;       /** List (array) of child items */
+    
+    /**
+    *   @brief it is m_itemdata QList of a ModelPart Item
+    */
     QList<QVariant>                             m_itemData;         /** List (array of column data for item */
+
+    /**
+    *   @brief it is m_parentItem QList of a ModelPart Item
+    */
     ModelPart* m_parentItem;       /**< Pointer to parent */
 
     /* These are some typical properties that I think the part will need, you might
      * want to add you own.
      */
+    
+    /**
+    *   @brief gives the name of the ModelPart
+    */
     QString name;
+    
+    /**
+    * @brief Shows whether the model rendering is visble of not by indicating it via True/False
+    */
     bool isVisible;          /** True/false to indicate if should be visible in model rendering */
+
+    /**
+    *   @brief RG1, RG2 and RG3 value for the ModelParts
+    */
     unsigned char RGB1 = 0;
     unsigned char RGB2 = 0;
     unsigned char RGB3 = 0;
@@ -148,10 +171,26 @@ private:
     /* These are vtk properties that will be used to load/render a model of this part,
      * commented out for now but will be used later
      */
-    vtkSmartPointer<vtkSTLReader>               file;               /**< Datafile from which part loaded */
-    vtkSmartPointer<vtkMapper>                  mapper;             /**< Mapper for rendering */
-    vtkSmartPointer<vtkActor>                   actor;              /**< Actor for rendering */
-    vtkColor3<unsigned char>                    colour;             /**< User defineable colour */
+    
+    /** 
+    *   @brief Datafile from which part loaded 
+    */
+    vtkSmartPointer<vtkSTLReader>               file;  
+
+    /**
+    *   @brief Mapper for rendering
+    */
+    vtkSmartPointer<vtkMapper>                  mapper;    
+
+    /**
+    *   @brief Actor for rendering
+    */
+    vtkSmartPointer<vtkActor>                   actor;             
+
+    /**
+    *   @brief User defineable colour
+    */
+    vtkColor3<unsigned char>                    colour;             
 };
 
 
