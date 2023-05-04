@@ -43,7 +43,7 @@ class MainWindow : public QMainWindow
 
 public:
     /**  Constructor
-    * @param the parent pointer of the parent widget
+    * @param parent pointer of the parent widget
     */
     // Constructor which initializes teh QWidget parent in order create a 3D render it also initializes the ModelPartList
     MainWindow(QWidget *parent = nullptr);
@@ -55,7 +55,7 @@ public:
 
     /** 
     *   @brief Is used to update the renderer window
-    *   @param updates the renderer window
+    *   @param updateRender the renderer window
     */
     // It is a function used to updat the 3D visulaization if any changes are made to the model part
     void updateRender();
@@ -79,14 +79,19 @@ public slots:
     */
     void handleButton2();
  
-
+    /**
+    *   @brief It is a slot function which has the ability to handle the first checkbox click
+    */
     void checkbox1();
+
+    /**
+    *   @brief It is a slot function which has the ability to handle the second checkbox click
+    */
     void checkbox2();
 
     /**
     *   @brief It is a slot function which has the ability to handle the tree-view event
     */
-
     void handleTreeClick();
     
 signals:
@@ -115,7 +120,7 @@ private slots:
     void on_actionOpen_Directory_triggered();
     
 
-/** Shows the memeber variables
+/** Shows the member variables
 */
 private:
     Ui::MainWindow *ui;
