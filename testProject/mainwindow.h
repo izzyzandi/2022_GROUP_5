@@ -12,6 +12,9 @@
 #define MAINWINDOW_H
 
 // List of headers which are included
+/**
+*   @brief Included all the header files needed for the code
+*/
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include "optiondialog.h"
@@ -92,18 +95,19 @@ signals:
 * slot opens the file dialog box, option dialog box and directory dialog box
 */
 private slots:
-    void on_actionOpen_File_triggered();
     /**
     *   @brief It is the slot function which opens the file dialog box
     */
-    void on_actionItem_Options_triggered();
+    void on_actionOpen_File_triggered();
     /**
     *   @brief It is the slot function which opens the option dialog box
     */
-    void on_actionOpen_Directory_triggered();
+    void on_actionItem_Options_triggered();
     /**
     *   @brief It is the slot function which opens the directory dialog box
     */
+    void on_actionOpen_Directory_triggered();
+    
 
 /** Shows the memeber variables
 */
@@ -112,9 +116,14 @@ private:
 
     ModelPartList* partList;
 
-    vtkSmartPointer<vtkRenderer> renderer; // render the 3D visualization
+    vtkSmartPointer<vtkRenderer> renderer; //render the 3D visualization
+    /**
+    *   @brief render the 3D visualization
+    */ 
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow; // provide an independent interface with OpenGL render window
-    
+    /**
+    *   @brief render the 3D visualization
+    */
     void changeColour();
     /**
     *   @brief function used to change the colour of the presently selected model part in the form of a 3D visulaization

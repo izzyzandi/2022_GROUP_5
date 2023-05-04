@@ -73,26 +73,30 @@ protected:
     void run() override;
 
 private:
-    /* Standard VTK VR Classes */
+    /** Standard VTK VR Classes 
+        */
     vtkSmartPointer<vtkOpenVRRenderWindow>              window;
     vtkSmartPointer<vtkOpenVRRenderWindowInteractor>    interactor;
     vtkSmartPointer<vtkOpenVRRenderer>                  renderer;
     vtkSmartPointer<vtkOpenVRCamera>                    camera;
 
-    /* Use to synchronise passing of data to VR thread */
+    /**Use to synchronise passing of data to VR thread 
+        */
     QMutex                                              mutex;      
     QWaitCondition                                      condition;
 
-    /** List of actors that will need to be added to the VR scene */
+    /** List of actors that will need to be added to the VR scene 
+        */
     vtkSmartPointer<vtkActorCollection>                 actors;
 
-    /** A timer to help implement animations and visual effects */
+    /** A timer to help implement animations and visual effects 
+        */
     std::chrono::time_point<std::chrono::steady_clock>  t_last;
 
     /** This will be set to false by the constructor, if it is set to true
       * by the GUI then the rendering will end 
       */
-    bool                                                endRender;
+    bool                                                endRender; 
 
     /** Variable List
      *   Some variables to indicate animation actions to apply.
