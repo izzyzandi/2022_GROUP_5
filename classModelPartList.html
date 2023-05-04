@@ -118,13 +118,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a05d52c5cac09750d28ad041ec6a3d5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6e2e108802afbc45e4bd054dccf982"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classModelPart.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPartList.html#a1b6e2e108802afbc45e4bd054dccf982">getRootItem</a> ()</td></tr>
 <tr class="separator:a1b6e2e108802afbc45e4bd054dccf982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memItemLeft" align="right" valign="top"><a id="ac687a2942c6e8b8b23df36c32a0deaeb"></a>
-QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b> (QModelIndex &amp;<a class="el" href="classModelPartList.html#a2aeb9586030b325193894ddfe99e629c">parent</a>, const QList&lt; QVariant &gt; &amp;<a class="el" href="classModelPartList.html#a60923d947a2eafb5dfabe1cf8461807e">data</a>)</td></tr>
+<tr class="memitem:ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPartList.html#ac687a2942c6e8b8b23df36c32a0deaeb">appendChild</a> (QModelIndex &amp;<a class="el" href="classModelPartList.html#a2aeb9586030b325193894ddfe99e629c">parent</a>, const QList&lt; QVariant &gt; &amp;<a class="el" href="classModelPartList.html#a60923d947a2eafb5dfabe1cf8461807e">data</a>)</td></tr>
+<tr class="memdesc:ac687a2942c6e8b8b23df36c32a0deaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the child to the specific parent index with the given data.  <a href="classModelPartList.html#ac687a2942c6e8b8b23df36c32a0deaeb">More...</a><br /></td></tr>
 <tr class="separator:ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a464a7abc3799ad9498c0ace03f38f87e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classModelPart.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPartList.html#a464a7abc3799ad9498c0ace03f38f87e">rootItem</a></td></tr>
+<tr class="memdesc:a464a7abc3799ad9498c0ace03f38f87e"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer for the root item of the model  <a href="classModelPartList.html#a464a7abc3799ad9498c0ace03f38f87e">More...</a><br /></td></tr>
 <tr class="separator:a464a7abc3799ad9498c0ace03f38f87e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -182,6 +183,43 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac687a2942c6e8b8b23df36c32a0deaeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac687a2942c6e8b8b23df36c32a0deaeb">&#9670;&nbsp;</a></span>appendChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex ModelPartList::appendChild </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; QVariant &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Appends the child to the specific parent index with the given data. </p>
+<p>The function helps create a new index which shows the newly appended child and returns it </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>the parent index to the chld will be appended </td></tr>
+    <tr><td class="paramname">data</td><td>the data would be assigned to the new index which was created </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4a6ebf42f2f1c5c0242154d093295756"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a6ebf42f2f1c5c0242154d093295756">&#9670;&nbsp;</a></span>columnCount()</h2>
 
@@ -434,7 +472,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is a pointer to the item at the base of the tree </p>
+
+<p>pointer for the root item of the model </p>
+<p>The private member variable will have the pointer <a class="el" href="classModelPart.html">ModelPart</a> object which is the root item of the model This is a pointer to the item at the base of the tree </p>
 
 </div>
 </div>

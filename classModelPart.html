@@ -133,14 +133,14 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>getColourB</
 <tr class="separator:a3d845a3cb1d357a0c2f4ffb131e73116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40112df77afcccbc969d28243117831"><td class="memItemLeft" align="right" valign="top">vtkActor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#ad40112df77afcccbc969d28243117831">getNewActor</a> ()</td></tr>
 <tr class="separator:ad40112df77afcccbc969d28243117831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0360e371670a26713b17b33fbd98052"><td class="memItemLeft" align="right" valign="top"><a id="af0360e371670a26713b17b33fbd98052"></a>
-vtkSmartPointer&lt; vtkMapper &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMapper</b> ()</td></tr>
+<tr class="memitem:af0360e371670a26713b17b33fbd98052"><td class="memItemLeft" align="right" valign="top">vtkSmartPointer&lt; vtkMapper &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#af0360e371670a26713b17b33fbd98052">getMapper</a> ()</td></tr>
+<tr class="memdesc:af0360e371670a26713b17b33fbd98052"><td class="mdescLeft">&#160;</td><td class="mdescRight">It will return a smart pointer to the mapper which is used by the object The caller is used for managing the lifetime of the returned object.  <a href="classModelPart.html#af0360e371670a26713b17b33fbd98052">More...</a><br /></td></tr>
 <tr class="separator:af0360e371670a26713b17b33fbd98052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a547a8f5eca9a958acc4ace0da2a5961a"><td class="memItemLeft" align="right" valign="top"><a id="a547a8f5eca9a958acc4ace0da2a5961a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFilterAndActor</b> (int x, int y)</td></tr>
+<tr class="memitem:a547a8f5eca9a958acc4ace0da2a5961a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a547a8f5eca9a958acc4ace0da2a5961a">setFilterAndActor</a> (int x, int y)</td></tr>
+<tr class="memdesc:a547a8f5eca9a958acc4ace0da2a5961a"><td class="mdescLeft">&#160;</td><td class="mdescRight">will set the filter and the actor at the required coordinates  <a href="classModelPart.html#a547a8f5eca9a958acc4ace0da2a5961a">More...</a><br /></td></tr>
 <tr class="separator:a547a8f5eca9a958acc4ace0da2a5961a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada18f1720e2325078284da05e7830294"><td class="memItemLeft" align="right" valign="top"><a id="ada18f1720e2325078284da05e7830294"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>get_visible</b> ()</td></tr>
+<tr class="memitem:ada18f1720e2325078284da05e7830294"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#ada18f1720e2325078284da05e7830294">get_visible</a> ()</td></tr>
+<tr class="memdesc:ada18f1720e2325078284da05e7830294"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the viibility state of the object  <a href="classModelPart.html#ada18f1720e2325078284da05e7830294">More...</a><br /></td></tr>
 <tr class="separator:ada18f1720e2325078284da05e7830294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -354,6 +354,26 @@ vtkColor3&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bott
 
 </div>
 </div>
+<a id="ada18f1720e2325078284da05e7830294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada18f1720e2325078284da05e7830294">&#9670;&nbsp;</a></span>get_visible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ModelPart::get_visible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the viibility state of the object </p>
+<p>The function will return a boolean value in relation to the visibility of the object if vible it will be true if not it will be false </p><dl class="section return"><dt>Returns</dt><dd>boolean value indicating whether the object is visible ('true') or not ('false') </dd></dl>
+
+</div>
+</div>
 <a id="a3d845a3cb1d357a0c2f4ffb131e73116"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d845a3cb1d357a0c2f4ffb131e73116">&#9670;&nbsp;</a></span>getActor()</h2>
 
@@ -369,6 +389,26 @@ vtkColor3&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bott
       </table>
 </div><div class="memdoc">
 <p>Return actor </p><dl class="section return"><dt>Returns</dt><dd>pointer to default actor for GUI rendering </dd></dl>
+
+</div>
+</div>
+<a id="af0360e371670a26713b17b33fbd98052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0360e371670a26713b17b33fbd98052">&#9670;&nbsp;</a></span>getMapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vtkSmartPointer&lt; vtkMapper &gt; ModelPart::getMapper </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It will return a smart pointer to the mapper which is used by the object The caller is used for managing the lifetime of the returned object. </p>
+<p>The function returns a 'vtkSmartPointer&lt;vtkMapper&gt;' object </p><dl class="section return"><dt>Returns</dt><dd>smart pointer to the mapper used by the object </dd></dl>
 
 </div>
 </div>
@@ -517,6 +557,43 @@ vtkColor3&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bott
       </table>
 </div><div class="memdoc">
 <p>Set colour (0-255 RGB values as ints) </p>
+
+</div>
+</div>
+<a id="a547a8f5eca9a958acc4ace0da2a5961a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547a8f5eca9a958acc4ace0da2a5961a">&#9670;&nbsp;</a></span>setFilterAndActor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPart::setFilterAndActor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>will set the filter and the actor at the required coordinates </p>
+<p>The function will set the filter and actor in relation to the object at the coordinates </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the x-coordinate of the object </td></tr>
+    <tr><td class="paramname">y</td><td>the y-cooridnate of the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
