@@ -46,7 +46,7 @@ public:
 
 
     /**  Constructor
-    * @param the parent object of the trend
+    * @param parent object of the trend
       */
     VRRenderThread(QObject* parent = nullptr);
 
