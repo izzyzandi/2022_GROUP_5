@@ -113,8 +113,7 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8e73e14ace5b39ccd4579f0ff73c9f73"><td class="memItemLeft" align="right" valign="top"><a id="a8e73e14ace5b39ccd4579f0ff73c9f73"></a>
-vtkSmartPointer&lt; vtkOpenVRRenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
+<tr class="memitem:a8e73e14ace5b39ccd4579f0ff73c9f73"><td class="memItemLeft" align="right" valign="top">vtkSmartPointer&lt; vtkOpenVRRenderWindow &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a8e73e14ace5b39ccd4579f0ff73c9f73">window</a></td></tr>
 <tr class="separator:a8e73e14ace5b39ccd4579f0ff73c9f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68aa4d27677d0ee4f86d38495f99ee15"><td class="memItemLeft" align="right" valign="top"><a id="a68aa4d27677d0ee4f86d38495f99ee15"></a>
 vtkSmartPointer&lt; vtkOpenVRRenderWindowInteractor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>interactor</b></td></tr>
@@ -125,8 +124,7 @@ vtkSmartPointer&lt; vtkOpenVRRenderer &gt;&#160;</td><td class="memItemRight" va
 <tr class="memitem:a1e4b555a1579eb74f3eb6b0c32a5ae24"><td class="memItemLeft" align="right" valign="top"><a id="a1e4b555a1579eb74f3eb6b0c32a5ae24"></a>
 vtkSmartPointer&lt; vtkOpenVRCamera &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
 <tr class="separator:a1e4b555a1579eb74f3eb6b0c32a5ae24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25df6d9540a8639e394f18740e9c9c2"><td class="memItemLeft" align="right" valign="top"><a id="ab25df6d9540a8639e394f18740e9c9c2"></a>
-QMutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex</b></td></tr>
+<tr class="memitem:ab25df6d9540a8639e394f18740e9c9c2"><td class="memItemLeft" align="right" valign="top">QMutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#ab25df6d9540a8639e394f18740e9c9c2">mutex</a></td></tr>
 <tr class="separator:ab25df6d9540a8639e394f18740e9c9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5900f14cb28ad24b7051d09e28b3627"><td class="memItemLeft" align="right" valign="top"><a id="ae5900f14cb28ad24b7051d09e28b3627"></a>
 QWaitCondition&#160;</td><td class="memItemRight" valign="bottom"><b>condition</b></td></tr>
@@ -346,6 +344,29 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
+<a id="ab25df6d9540a8639e394f18740e9c9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25df6d9540a8639e394f18740e9c9c2">&#9670;&nbsp;</a></span>mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMutex VRRenderThread::mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Use to synchronise passing of data to VR thread </p>
+
+</div>
+</div>
 <a id="a62e59566a4f20575f8d4ea5b04478073"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62e59566a4f20575f8d4ea5b04478073">&#9670;&nbsp;</a></span>rotateX</h2>
 
@@ -389,6 +410,29 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 </div><div class="memdoc">
 <p>A timer to help implement animations and visual effects </p>
+
+</div>
+</div>
+<a id="a8e73e14ace5b39ccd4579f0ff73c9f73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e73e14ace5b39ccd4579f0ff73c9f73">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vtkSmartPointer&lt;vtkOpenVRRenderWindow&gt; VRRenderThread::window</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Standard VTK VR Classes </p>
 
 </div>
 </div>
