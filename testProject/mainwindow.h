@@ -75,14 +75,15 @@ public slots:
     *   @brief It is a slot function which has the ability to handle the second button click
     */
     void handleButton2();
-<<<<<<< HEAD
+ 
+
     void checkbox1();
     void checkbox2();
-=======
+
     /**
     *   @brief It is a slot function which has the ability to handle the tree-view event
     */
->>>>>>> 60fe3ff9af717aea0cea999bb22b96e2cda565a2
+
     void handleTreeClick();
     
 signals:
@@ -124,7 +125,9 @@ private:
     /**
     *   @brief function used to change the colour of the presently selected model part in the form of a 3D visulaization
     */
-
+    int x = 0;
+    int y = 0;
+   
    // VRRenderThread* VRThread;
 };
 #endif // MAINWINDOW_H

@@ -162,29 +162,41 @@ void ModelPart::loadSTL(QString fileName) {
         mapper = vtkNew<vtkDataSetMapper>();
 
 
-    setFilterAndActor(0);
+    setFilterAndActor(0,0);
 }
 
-void ModelPart::setFilterAndActor(int x) {
+void ModelPart::setFilterAndActor(int x, int y) {
 
 
     /* 2b -> insert filter(s) */
-    if (x == 1) {
+    if (x == 1 && y == 0) {
         vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
         planeLeft->SetOrigin(0, 0, 0);
         planeLeft->SetNormal(0, 1, 0);
 
         vtkSmartPointer<vtkClipDataSet> clipFilter = vtkSmartPointer<vtkClipDataSet>::New();
         clipFilter->SetInputConnection(file->GetOutputPort());
-        clipFilter->SetClipFunction(planeLeft.Get());//
+        clipFilter->SetClipFunction(planeLeft.Get());
         mapper->SetInputConnection(clipFilter->GetOutputPort());
        
     }
-    else if (x == 2) {
+    else if (x == 0 && y == 2) {
         vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
         shrinkFilter->SetInputConnection(file->GetOutputPort());
         shrinkFilter->SetShrinkFactor(.5);
         shrinkFilter->Update();
+        mapper->SetInputConnection(shrinkFilter->GetOutputPort());
+    }
+    else if (x == 1 && y == 2) {
+        vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
+        planeLeft->SetOrigin(0, 0, 0);
+        planeLeft->SetNormal(0, 1, 0);
+
+        vtkSmartPointer<vtkClipDataSet> clipFilter = vtkSmartPointer<vtkClipDataSet>::New();
+        vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
+        clipFilter->SetInputConnection(file->GetOutputPort());
+        shrinkFilter->SetInputConnection(clipFilter->GetOutputPort());
+        clipFilter->SetClipFunction(planeLeft.Get());
         mapper->SetInputConnection(shrinkFilter->GetOutputPort());
     }
     else {
