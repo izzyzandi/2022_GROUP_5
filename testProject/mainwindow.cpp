@@ -8,6 +8,10 @@
 #include <QDirIterator>
 #include <QTimer>
 #include <QColor>
+#include <vtkPlane.h>
+#include <vtkClipPolyData.h>
+#include <vtkClipDataSet.h>
+#include <vtkTransform.h>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -21,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Connect signals from the two push buttons to slots in the main window class
     connect(ui->PushButton, &QPushButton::released, this, &MainWindow::handleButton);
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton2);
+    connect(ui->checkBox, &QCheckBox::released, this, &MainWindow::checkbox1);
+    connect(ui->checkBox_2, &QCheckBox::released, this, &MainWindow::checkbox2);
+ 
 
     // Connect the signal for when an item in the tree view is clicked to a slot in the main window class
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClick);
@@ -121,6 +128,7 @@ void MainWindow::handleButton2() {
   
 }
 
+
 void MainWindow::changeColour() {
 
     /* Get the index of the selected item in the tree view*/
@@ -134,6 +142,48 @@ void MainWindow::changeColour() {
     color.getRgb(&red, &green, &blue); // get the RGB values of the color
     selectedPart->getActor()->GetProperty()->SetColor(red, blue, green);
     hue = (hue + 5) % 360; // increment hue by 5 degrees
+    updateRender();
+}
+
+void MainWindow::checkbox1() {
+    emit statusUpdateMessage(QString("check 1 was clicked!"), 0);
+
+    /* Get the index of the selected item in the tree view*/
+    QModelIndex index = ui->treeView->currentIndex();
+    /* Get a pointer to the item from the index*/
+    //Get a pointer to the ModelPart object represented by the selected item
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    if (ui->checkBox->isChecked()) {
+        selectedPart->setFilterAndActor(x, 2);
+        y = 2;
+    }
+    else
+    {
+        y = 0;
+        selectedPart->setFilterAndActor(x, y);
+
+    }
+    updateRender();
+}
+
+void MainWindow::checkbox2() {
+    emit statusUpdateMessage(QString("check 2 was clicked!"), 0);
+    
+    /* Get the index of the selected item in the tree view*/
+    QModelIndex index = ui->treeView->currentIndex();
+    /* Get a pointer to the item from the index*/
+    //Get a pointer to the ModelPart object represented by the selected item
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    
+    if (ui->checkBox_2->isChecked()) {
+        selectedPart->setFilterAndActor(1, y);
+        x = 1;
+    }
+    else
+    {
+        x = 0;
+        selectedPart->setFilterAndActor(x, y);
+    }
     updateRender();
 }
 
