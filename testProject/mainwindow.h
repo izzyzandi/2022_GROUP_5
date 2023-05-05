@@ -12,9 +12,13 @@
 #define MAINWINDOW_H
 
 // List of headers which are included
+/**
+*   @brief Included all the header files needed for the code
+*/
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include "optiondialog.h"
+#include "VRRenderThread.h"
 #include <QFileDialog>
 #include <QMainWindow>
 #include <vtkSmartPointer.h>
@@ -40,7 +44,7 @@ class MainWindow : public QMainWindow
 
 public:
     /**  Constructor
-    * @param the parent pointer of the parent widget
+    * @param parent pointer of the parent widget
     */
     // Constructor which initializes teh QWidget parent in order create a 3D render it also initializes the ModelPartList
     MainWindow(QWidget *parent = nullptr);
@@ -52,7 +56,7 @@ public:
 
     /** 
     *   @brief Is used to update the renderer window
-    *   @param updates the renderer window
+    *   @param updateRender the renderer window
     */
     // It is a function used to updat the 3D visulaization if any changes are made to the model part
     void updateRender();
@@ -63,6 +67,10 @@ public:
     */
     void updateRenderFromTree(const QModelIndex& index);
     
+    void updateVR();
+
+    void addActorsToVRFromTree(const QModelIndex& index);
+
 /** Private slots
 * The slots are used to handle user interface with the help of buttons and the tree-view
 */
@@ -76,8 +84,14 @@ public slots:
     */
     void handleButton2();
  
-
+    /**
+    *   @brief It is a slot function which has the ability to handle the first checkbox click
+    */
     void checkbox1();
+
+    /**
+    *   @brief It is a slot function which has the ability to handle the second checkbox click
+    */
     void checkbox2();
 
     void XSlider();
@@ -87,7 +101,6 @@ public slots:
     /**
     *   @brief It is a slot function which has the ability to handle the tree-view event
     */
-
     void handleTreeClick();
     
 signals:
@@ -102,29 +115,41 @@ signals:
 * slot opens the file dialog box, option dialog box and directory dialog box
 */
 private slots:
-    void on_actionOpen_File_triggered();
     /**
     *   @brief It is the slot function which opens the file dialog box
     */
-    void on_actionItem_Options_triggered();
+    void on_actionOpen_File_triggered();
     /**
     *   @brief It is the slot function which opens the option dialog box
     */
-    void on_actionOpen_Directory_triggered();
+    void on_actionItem_Options_triggered();
     /**
     *   @brief It is the slot function which opens the directory dialog box
     */
-
+<<<<<<< HEAD
+    
+    
 /** Shows the memeber variables
+=======
+    void on_actionOpen_Directory_triggered();
+    
+
+/** Shows the member variables
+>>>>>>> 74d7c7558569db452ff4740a9c01eb693c9ede78
 */
 private:
     Ui::MainWindow *ui;
 
     ModelPartList* partList;
 
-    vtkSmartPointer<vtkRenderer> renderer; // render the 3D visualization
+    vtkSmartPointer<vtkRenderer> renderer; //render the 3D visualization
+    /**
+    *   @brief render the 3D visualization
+    */ 
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow; // provide an independent interface with OpenGL render window
-    
+    /**
+    *   @brief render the 3D visualization
+    */
     void changeColour();
     /**
     *   @brief function used to change the colour of the presently selected model part in the form of a 3D visulaization
@@ -132,6 +157,8 @@ private:
     int x = 0;
     int y = 0;
    
-   // VRRenderThread* VRThread;
+    VRRenderThread* VRThread;
+
+    bool VRisRunning = false;
 };
 #endif // MAINWINDOW_H

@@ -90,12 +90,17 @@ public:
       */
     ModelPart* getRootItem();
 
-    /**
-      */
+    /** The function helps create a new index which shows the newly appended child and returns it
+      * @brief Appends the child to the specific parent index with the given data
+      * @param parent the parent index to the chld will be appended
+      * @param data the data would be assigned to the new index which was created
+     */
     QModelIndex appendChild( QModelIndex& parent, const QList<QVariant>& data );
 
     
-
+/** The private member variable will have the pointer ModelPart object which is the root item of the model
+*   @brief pointer for the root item of the model 
+*/
 
 private:
     ModelPart *rootItem;    /**< This is a pointer to the item at the base of the tree */

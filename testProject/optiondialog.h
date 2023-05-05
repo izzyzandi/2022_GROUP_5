@@ -96,6 +96,10 @@ public:
     */
 
 // Pointer for the UI Object
+    /** The private member variable will hold the value of the pointer to the Ui::optionDialog
+    *   Access to the varibale is restricted to the class and its member function
+    *   @brief Pointer to the user interface for the given option diaglog
+    */
 private:
     Ui::optionDialog *ui;
 };

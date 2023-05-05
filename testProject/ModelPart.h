@@ -127,12 +127,26 @@ public:
     /** Return new actor for use in VR
       * @return pointer to new actor
       */
-    vtkActor* getNewActor();
+    vtkActor* getNewActor(int x, int y);
 
+    /** The function returns a 'vtkSmartPointer<vtkMapper>' object 
+    *   @brief It will return a smart pointer to the mapper which is used by the object
+    *   The caller is used for managing the lifetime of the returned object
+    *   @return smart pointer to the mapper used by the object
+    */
     vtkSmartPointer<vtkMapper> getMapper();
 
+    /** The function will set the filter and actor in relation to the object at the coordinates
+    *   @brief will set the filter and the actor at the required coordinates
+    *   @param x the x-coordinate of the object 
+    *   @param y the y-cooridnate of the object
+    */
     void setFilterAndActor(int x, int y);
-  
+    
+    /** The function will return a boolean value in relation to the visibility of the object if vible it will be true if not it will be false
+    *   @brief returns the viibility state of the object
+    *   @return boolean value indicating whether the object is visible ('true') or not ('false')
+    */
     bool get_visible();
 
 private:
