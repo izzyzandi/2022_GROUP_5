@@ -161,12 +161,15 @@ void MainWindow::checkbox1() {
     //Get a pointer to the ModelPart object represented by the selected item
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
     if (ui->checkBox->isChecked()) {
-        selectedPart->setFilterAndActor(x, 2);
-        y = 2;
+        y = 1;
+        selectedPart->set_shrink(1);
+        selectedPart->setFilterAndActor(x, y);
+        
     }
     else
     {
         y = 0;
+        selectedPart->set_shrink(0);
         selectedPart->setFilterAndActor(x, y);
 
     }
@@ -195,12 +198,15 @@ void MainWindow::checkbox2() {
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
     
     if (ui->checkBox_2->isChecked()) {
-        selectedPart->setFilterAndActor(1, y);
         x = 1;
+        selectedPart->set_clip(1);
+        selectedPart->setFilterAndActor(x, y);
+        
     }
     else
     {
         x = 0;
+        selectedPart->set_clip(0);
         selectedPart->setFilterAndActor(x, y);
     }
     updateRender();
@@ -249,6 +255,9 @@ void MainWindow::handleTreeClick() {
 
     // Emit a signal to update the status bar with the selected item's name
     emit statusUpdateMessage(QString("The selected item is: ") + text, 0);
+
+    ui->checkBox->setChecked(selectedPart->get_shrink());
+    ui->checkBox_2->setChecked(selectedPart->get_clip());
 }
 
 // Destructor for the main window
@@ -508,4 +517,12 @@ void MainWindow::addActorsToVRFromTree(const QModelIndex& index) {
         addActorsToVRFromTree(partList->index(i, 0, index));
     }
 
+}
+
+int MainWindow::get_x() {
+    return x;
+}
+
+int MainWindow::get_y() {
+    return y;
 }

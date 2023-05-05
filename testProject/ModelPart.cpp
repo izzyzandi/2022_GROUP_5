@@ -182,14 +182,14 @@ void ModelPart::setFilterAndActor(int x, int y) {
         mapper->SetInputConnection(clipFilter->GetOutputPort());
        
     }
-    else if (x == 0 && y == 2) {
+    else if (x == 0 && y == 1) {
         vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
         shrinkFilter->SetInputConnection(file->GetOutputPort());
         shrinkFilter->SetShrinkFactor(.5);
         shrinkFilter->Update();
         mapper->SetInputConnection(shrinkFilter->GetOutputPort());
     }
-    else if (x == 1 && y == 2) {
+    else if (x == 1 && y == 1) {
         vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
         planeLeft->SetOrigin(0, 0, 0);
         planeLeft->SetNormal(0, 1, 0);
@@ -250,14 +250,14 @@ vtkActor* ModelPart::getNewActor(int x, int y) {
         mapper2->SetInputConnection(clipFilter->GetOutputPort());
 
     }
-    else if (x == 0 && y == 2) {
+    else if (x == 0 && y == 1) {
         vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
         shrinkFilter->SetInputConnection(file->GetOutputPort());
         shrinkFilter->SetShrinkFactor(.5);
         shrinkFilter->Update();
         mapper2->SetInputConnection(shrinkFilter->GetOutputPort());
     }
-    else if (x == 1 && y == 2) {
+    else if (x == 1 && y == 1) {
         vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
         planeLeft->SetOrigin(0, 0, 0);
         planeLeft->SetNormal(0, 1, 0);
@@ -308,3 +308,15 @@ vtkActor* ModelPart::getNewActor(int x, int y) {
     return nullptr;
 }
 
+int ModelPart::get_shrink() {
+    return shrink;
+}
+void ModelPart::set_shrink(int shrink_) {
+    shrink = shrink_;
+}
+int ModelPart::get_clip() {
+    return clip;
+}
+void ModelPart::set_clip(int clip_) {
+    clip = clip_;
+}
