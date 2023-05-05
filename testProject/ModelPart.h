@@ -149,6 +149,11 @@ public:
     */
     bool get_visible();
 
+    int get_shrink();
+    void set_shrink(int shrink_);
+    int get_clip();
+    void set_clip(int clip_);
+
 private:
     /**
     *   @brief it is m_childItem QList of a ModelPart item
@@ -208,7 +213,10 @@ private:
     /**
     *   @brief User defineable colour
     */
-    vtkColor3<unsigned char>                    colour;             
+    vtkColor3<unsigned char>                    colour;  
+
+    int shrink = 0;
+    int clip = 0;
 };
 
 

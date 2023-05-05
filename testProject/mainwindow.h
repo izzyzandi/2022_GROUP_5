@@ -71,6 +71,9 @@ public:
 
     void addActorsToVRFromTree(const QModelIndex& index);
 
+    int get_x();
+    int get_y();
+
 /** Private slots
 * The slots are used to handle user interface with the help of buttons and the tree-view
 */
