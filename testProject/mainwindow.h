@@ -15,6 +15,7 @@
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include "optiondialog.h"
+#include "VRRenderThread.h"
 #include <QFileDialog>
 #include <QMainWindow>
 #include <vtkSmartPointer.h>
@@ -63,6 +64,10 @@ public:
     */
     void updateRenderFromTree(const QModelIndex& index);
     
+    void updateVR();
+
+    void addActorsToVRFromTree(const QModelIndex& index);
+
 /** Private slots
 * The slots are used to handle user interface with the help of buttons and the tree-view
 */
@@ -110,7 +115,8 @@ private slots:
     /**
     *   @brief It is the slot function which opens the directory dialog box
     */
-
+    
+    
 /** Shows the memeber variables
 */
 private:
@@ -128,6 +134,8 @@ private:
     int x = 0;
     int y = 0;
    
-   // VRRenderThread* VRThread;
+    VRRenderThread* VRThread;
+
+    bool VRisRunning = false;
 };
 #endif // MAINWINDOW_H

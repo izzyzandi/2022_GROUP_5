@@ -9,6 +9,7 @@
 
 #include "VRRenderThread.h"
 
+#include <qdebug.h>
 
 /* Vtk headers */
 #include <vtkActor.h>
@@ -41,6 +42,8 @@ VRRenderThread::VRRenderThread( QObject* parent ) {
 	rotateX = 0.;
 	rotateY = 0.;
 	rotateZ = 0.;
+
+	resetActors = false;
 }
 
 
@@ -57,7 +60,7 @@ VRRenderThread::~VRRenderThread() {
 void VRRenderThread::addActorOffline( vtkActor* actor ) {
 	if (!actor) return;
 	/* Check to see if render thread is running */
-	if (!this->isRunning()) {
+	//if (!this->isRunning()) {
 		double* ac = actor->GetOrigin();
 	
 		/* I have found that these initial transforms will position the FS
@@ -67,7 +70,7 @@ void VRRenderThread::addActorOffline( vtkActor* actor ) {
 		actor->AddPosition(-ac[0]+0, -ac[1]-100, -ac[2]-200);
 
 		actors->AddItem(actor);
-	}
+	//}
 }
 
 
@@ -92,6 +95,11 @@ void VRRenderThread::issueCommand( int cmd, double value ) {
 		case ROTATE_Z:
 			this->rotateZ = value;
 			break;
+
+		case RESET_ACTORS:
+			this->resetActors = true;
+			break;
+
 	}
 }
 
@@ -126,6 +134,7 @@ void VRRenderThread::run() {
 	while( (a = (vtkActor*)actors->GetNextActor() ) ) {
 		renderer->AddActor(a);
 	}
+	actors->RemoveAllItems();
 
 	/* The render window is the actual GUI window
 	 * that appears on the computer screen
@@ -192,6 +201,23 @@ void VRRenderThread::run() {
 			actorList->InitTraversal();
 			while ((a = (vtkActor*)actorList->GetNextActor())) {
 				a->RotateZ(rotateZ);
+			}
+
+			if (resetActors) {
+				/* Clear all view props from renderer */
+				renderer->RemoveAllViewProps();
+				
+				
+				/* Add list of actors */
+				vtkActor* a;
+				actors->InitTraversal();
+				qDebug() << "Adding actors in VR Thread...";
+				while ((a = (vtkActor*)actors->GetNextActor())) {
+					renderer->AddActor(a);
+					qDebug() << " - actor";
+				}
+				actors->RemoveAllItems();
+				resetActors = false;
 			}
 			
 			/* Remember time now */

@@ -19,6 +19,7 @@
 #include <vtkClipPolyData.h>
 #include <vtkClipDataSet.h>
 #include <vtkShrinkFilter.h>
+#include "mainwindow.h"
 
 
 
@@ -167,6 +168,7 @@ void ModelPart::loadSTL(QString fileName) {
 
 void ModelPart::setFilterAndActor(int x, int y) {
 
+    if (!file) return;
 
     /* 2b -> insert filter(s) */
     if (x == 1 && y == 0) {
@@ -205,7 +207,6 @@ void ModelPart::setFilterAndActor(int x, int y) {
     }
     actor = vtkNew<vtkActor>();
     actor->SetMapper(mapper);
-    
 
  //   actor->AddPosition(-150, -50, -100);
     actor->AddPosition(0, 0, 0);
@@ -226,7 +227,7 @@ vtkSmartPointer<vtkMapper> ModelPart::getMapper() {
     return mapper;
 }
 
-vtkActor* ModelPart::getNewActor() {
+vtkActor* ModelPart::getNewActor(int x, int y) {
     /* This is a placeholder function that will be used in the next worksheet.
      * 
      * The default mapper/actor combination can only be used to render the part in 
@@ -235,16 +236,60 @@ vtkActor* ModelPart::getNewActor() {
      * of this function. */
      
     if (!actor) return NULL;
-    if (file) {
-        /* 1. Create new mapper */
-        vtkSmartPointer<vtkDataSetMapper> mapper2 = vtkSmartPointer<vtkDataSetMapper>::New();
+    vtkSmartPointer<vtkDataSetMapper> mapper2 = vtkSmartPointer<vtkDataSetMapper>::New();
+
+    /* 2b -> insert filter(s) */
+    if (x == 1 && y == 0) {
+        vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
+        planeLeft->SetOrigin(0, 0, 0);
+        planeLeft->SetNormal(0, 1, 0);
+
+        vtkSmartPointer<vtkClipDataSet> clipFilter = vtkSmartPointer<vtkClipDataSet>::New();
+        clipFilter->SetInputConnection(file->GetOutputPort());
+        clipFilter->SetClipFunction(planeLeft.Get());
+        mapper2->SetInputConnection(clipFilter->GetOutputPort());
+
+    }
+    else if (x == 0 && y == 2) {
+        vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
+        shrinkFilter->SetInputConnection(file->GetOutputPort());
+        shrinkFilter->SetShrinkFactor(.5);
+        shrinkFilter->Update();
+        mapper2->SetInputConnection(shrinkFilter->GetOutputPort());
+    }
+    else if (x == 1 && y == 2) {
+        vtkSmartPointer<vtkPlane> planeLeft = vtkSmartPointer<vtkPlane>::New();
+        planeLeft->SetOrigin(0, 0, 0);
+        planeLeft->SetNormal(0, 1, 0);
+
+        vtkSmartPointer<vtkClipDataSet> clipFilter = vtkSmartPointer<vtkClipDataSet>::New();
+        vtkSmartPointer<vtkShrinkFilter> shrinkFilter = vtkSmartPointer<vtkShrinkFilter>::New();
+        clipFilter->SetInputConnection(file->GetOutputPort());
+        shrinkFilter->SetInputConnection(clipFilter->GetOutputPort());
+        shrinkFilter->Update();
+        clipFilter->SetClipFunction(planeLeft.Get());
+        mapper2->SetInputConnection(shrinkFilter->GetOutputPort());
+    }
+    else {
+        // 3. Initialise the part's vtkActor and link to the mapper 
         mapper2->SetInputConnection(file->GetOutputPort());
+    }
+
+
+    vtkActor* actor2 = vtkActor::New();
+    actor2->SetMapper(mapper2);
+    actor2->AddPosition(0, 0, 0);
+    return actor2;
+//    if (file) {
+        /* 1. Create new mapper */
+//        vtkSmartPointer<vtkDataSetMapper> mapper2 = vtkSmartPointer<vtkDataSetMapper>::New();
+//        mapper2->SetInputConnection(file->GetOutputPort());
 
         //  DataSetMappr
         // /* 2. Create new actor and link to mapper */
 
-        vtkActor* actor2 = vtkActor::New();
-        actor2->SetMapper(mapper2);
+//        vtkActor* actor2 = vtkActor::New();
+//        actor2->SetMapper(mapper2);
 
         /* 3. Link the vtkProperties of the original actor to the new actor. This means
          *    if you change properties of the original part (colour, position, etc), the
@@ -254,11 +299,12 @@ vtkActor* ModelPart::getNewActor() {
          *    See the vtkActor documentation, particularly the GetProperty() and SetProperty()
          *    functions.
          */
-        actor2->SetProperty(actor->GetProperty());
+//        actor2->SetProperty(actor->GetProperty());
 
         /* The new vtkActor pointer must be returned here */
-        return actor2;
-    }
+//        return actor2;
+ //}   
+   
     return nullptr;
 }
 

@@ -127,7 +127,7 @@ public:
     /** Return new actor for use in VR
       * @return pointer to new actor
       */
-    vtkActor* getNewActor();
+    vtkActor* getNewActor(int x, int y);
 
     vtkSmartPointer<vtkMapper> getMapper();
 

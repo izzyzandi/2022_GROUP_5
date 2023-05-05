@@ -41,7 +41,8 @@ public:
         END_RENDER,
         ROTATE_X,
         ROTATE_Y,
-        ROTATE_Z
+        ROTATE_Z,
+        RESET_ACTORS
     } Command;
 
 
@@ -93,6 +94,8 @@ private:
       * by the GUI then the rendering will end 
       */
     bool                                                endRender;
+
+    bool                                                resetActors;
 
     /** Variable List
      *   Some variables to indicate animation actions to apply.

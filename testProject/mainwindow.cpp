@@ -89,12 +89,13 @@ MainWindow::MainWindow(QWidget *parent)
     renderer->GetActiveCamera()->Elevation(30);
     renderer->ResetCameraClippingRange();
 
+    VRThread = NULL;
   
 }
 
 void MainWindow::handleButton() {
     // Create a new VRRenderThread object
-    VRRenderThread* VR = new VRRenderThread;
+    VRThread = new VRRenderThread;
 
     // Get the currently selected item in a tree view
     QModelIndex index = ui->treeView->currentIndex();
@@ -105,13 +106,14 @@ void MainWindow::handleButton() {
     // Emit a status update message indicating the selected part
     // emit statusUpdateMessage(QString("Selected Part: ") + selectedPart->data(0).toString() , 0);
     // Add a new actor to the VRRenderThread using the selectedPart
-    VR->addActorOffline( selectedPart->getNewActor() );
+ //   VR->addActorOffline( selectedPart->getNewActor() );
+    addActorsToVRFromTree(index);
 
     // Emit a status update message indicating that the VR button was clicked
     emit statusUpdateMessage(QString("VR button was clicked!"), 0); 
 
     // Start the VRRenderThread
-    VR->start();
+    VRThread->start();
 }
 
 void MainWindow::handleButton2() {
@@ -164,6 +166,18 @@ void MainWindow::checkbox1() {
 
     }
     updateRender();
+
+    if (VRThread && VRThread->isRunning()) {
+        
+        //VRThread->addActorOffline(selectedPart->getNewActor(x, y));
+        addActorsToVRFromTree(partList->index(0, 0, QModelIndex()));
+
+        VRThread->issueCommand(4, 0);
+    }
+    
+        
+
+//    updateVR();
 }
 
 void MainWindow::checkbox2() {
@@ -185,6 +199,15 @@ void MainWindow::checkbox2() {
         selectedPart->setFilterAndActor(x, y);
     }
     updateRender();
+
+    if (VRThread && VRThread->isRunning()) {
+
+        //VRThread->addActorOffline(selectedPart->getNewActor(x, y));
+        addActorsToVRFromTree(partList->index(0, 0, QModelIndex()));
+
+        VRThread->issueCommand(4, 0);
+    }
+
 }
 
 void MainWindow::handleTreeClick() {
@@ -434,3 +457,31 @@ void MainWindow::updateRenderFromTree(const QModelIndex & index) {
         
     }
 
+void MainWindow::updateVR() {
+    VRThread = new VRRenderThread();
+    VRThread->start();
+}
+
+void MainWindow::addActorsToVRFromTree(const QModelIndex& index) {
+    // Check if the index is valid
+    if (index.isValid()) {
+        // Cast the internalPointer of the index to a ModelPart object
+        ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+        // Add the selected part's actor to the renderer
+        VRThread->addActorOffline(selectedPart->getNewActor(x,y));
+
+        qDebug() << "Adding actor offline: " << selectedPart->data(0).toString();
+        /* Retrieve actor from selected part and add to renderer*/
+    }
+    // check to see if part has any children
+    if (!partList->hasChildren(index) || (index.flags() & Qt::ItemNeverHasChildren)) {
+        // If not, return
+        return;
+    }
+    /*loop through children and add their actors*/
+    int rows = partList->rowCount(index);
+    for (int i = 0; i < rows; i++) {
+        addActorsToVRFromTree(partList->index(i, 0, index));
+    }
+
+}
