@@ -13,7 +13,7 @@ var classModelPart =
     [ "getColourG", "classModelPart.html#a3ddfad7df9c628e07f1f5e50a47d41d3", null ],
     [ "getColourR", "classModelPart.html#af2c1b405404cdb46d45a804838440e3a", null ],
     [ "getMapper", "classModelPart.html#af0360e371670a26713b17b33fbd98052", null ],
-    [ "getNewActor", "classModelPart.html#ad40112df77afcccbc969d28243117831", null ],
+    [ "getNewActor", "classModelPart.html#a9fbd0855731be7e42fbbc7b2369884b6", null ],
     [ "loadSTL", "classModelPart.html#a8d004c61b9f9cb0da895956a4c22b97b", null ],
     [ "parentItem", "classModelPart.html#a9be3859d2a298e88d850a2480b7639f7", null ],
     [ "row", "classModelPart.html#a05bc0dd06a3658d9a2c46fa717dec910", null ],

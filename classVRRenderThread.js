@@ -13,6 +13,7 @@ var classVRRenderThread =
     [ "interactor", "classVRRenderThread.html#a68aa4d27677d0ee4f86d38495f99ee15", null ],
     [ "mutex", "classVRRenderThread.html#ab25df6d9540a8639e394f18740e9c9c2", null ],
     [ "renderer", "classVRRenderThread.html#af394f7a62e015d125ef8778c80eb9799", null ],
+    [ "resetActors", "classVRRenderThread.html#af268dffbd863489a045693dda4bb9930", null ],
     [ "rotateX", "classVRRenderThread.html#a62e59566a4f20575f8d4ea5b04478073", null ],
     [ "rotateY", "classVRRenderThread.html#a1ef5af3645f0311e62e15003b0d78ac3", null ],
     [ "rotateZ", "classVRRenderThread.html#a608732e550badec919426da6391912bd", null ],
