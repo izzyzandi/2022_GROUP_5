@@ -7,11 +7,14 @@ var classMainWindow =
     [ "checkbox2", "classMainWindow.html#a551acd2966e9acdc6e16345954a44aa2", null ],
     [ "handleButton", "classMainWindow.html#a132f0e713c1a2e43662407ad9858f933", null ],
     [ "handleButton2", "classMainWindow.html#accf7f1ca023168f0c31d2f9580e8acab", null ],
-    [ "handleTreeClick", "classMainWindow.html#a881c9312ae7d4cff66ff3b63f2616a62", null ],
+    [ "handleTreeClick", "classMainWindow.html#a94daaa73c7631a7594dfa92b9102713a", null ],
     [ "on_actionItem_Options_triggered", "classMainWindow.html#ad3d17973d3111f1ba9805217b6ab58cf", null ],
     [ "on_actionOpen_File_triggered", "classMainWindow.html#a3a4866823ec0a9148c03ade962e65cf3", null ],
     [ "statusUpdateMessage", "classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b", null ],
     [ "updateRender", "classMainWindow.html#aa2a5945f9c4bf90022f0a7ad3db34c49", null ],
     [ "updateRenderFromTree", "classMainWindow.html#a3efc38e6be895f53a3f973906e4174b8", null ],
-    [ "updateVR", "classMainWindow.html#af2677ee7c9413136da21e1b0b7ed2c90", null ]
+    [ "updateVR", "classMainWindow.html#af2677ee7c9413136da21e1b0b7ed2c90", null ],
+    [ "XSlider", "classMainWindow.html#a603bfec27c24ee8672809ffa3328cc2a", null ],
+    [ "YSlider", "classMainWindow.html#a19cbfb52f01125fcc651a2e39740273e", null ],
+    [ "ZSlider", "classMainWindow.html#a362ba695b7f3e14adf8923c8707601cf", null ]
 ];
