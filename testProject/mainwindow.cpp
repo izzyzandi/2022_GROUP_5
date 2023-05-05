@@ -2,6 +2,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "./ui_optiondialog.h"
+#include "ModelPart.h"
+#include "ModelPartList.h"
 #include <QMessageBox>
 #include <QApplication>
 #include <QDir>
@@ -202,9 +204,8 @@ void MainWindow::checkbox2() {
         selectedPart->setFilterAndActor(x, y);
     }
     updateRender();
-<<<<<<< HEAD
-    
-=======
+
+
 
     if (VRThread && VRThread->isRunning()) {
 
@@ -214,10 +215,24 @@ void MainWindow::checkbox2() {
         VRThread->issueCommand(4, 0);
     }
 
->>>>>>> 57d09b5666c61ab0943bbc2a20adcc8686c027be
+
 }
 
-void MainWindow::
+void MainWindow::XSlider() {
+    int XRotation = ui->XSlider->value();
+    if (VRThread && VRThread->isRunning())
+        VRThread->issueCommand(1, (double)XRotation);
+}
+void MainWindow::YSlider() {
+    int YRotation = ui->YSlider->value();
+    if (VRThread && VRThread->isRunning())
+        VRThread->issueCommand(1, (double)YRotation);
+}
+void MainWindow::ZSlider() {
+    int ZRotation = ui->ZSlider->value();
+    if (VRThread && VRThread->isRunning())
+        VRThread->issueCommand(1, (double)ZRotation);
+}
 
 void MainWindow::handleTreeClick() {
     /* Get the index of the selected item*/

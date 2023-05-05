@@ -126,7 +126,7 @@ private slots:
     /**
     *   @brief It is the slot function which opens the directory dialog box
     */
-<<<<<<< HEAD
+    void on_actionOpen_Directory_triggered();
     
     
 /** Shows the memeber variables
