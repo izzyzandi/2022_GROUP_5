@@ -27,6 +27,7 @@
 #include <vtkSTLReader.h>
 #include <vtkDataSetmapper.h>
 #include <vtkCallbackCommand.h>
+#include <vtkPlaneSource.h>
 
 
 /* The class constructor is called by MainWindow and runs in the primary program thread, this thread
@@ -219,6 +220,33 @@ void VRRenderThread::run() {
 					qDebug() << " - actor";
 				}
 				actors->RemoveAllItems();
+
+				// Create the plane mesh
+				vtkSmartPointer<vtkPlaneSource> planeSource = vtkSmartPointer<vtkPlaneSource>::New();
+				planeSource->SetOrigin(-10, 0, -10);
+				planeSource->SetPoint1(10, 0, -10);
+				planeSource->SetPoint2(-10, 0, 10);
+				planeSource->Update();
+
+				// Create the texture and load the image file
+//				vtkSmartPointer<vtkTexture> texture = vtkSmartPointer<vtkTexture>::New();
+//				texture->InterpolateOn();
+//				texture->SetInputData(vtkImageData::New()); // Replace 'vtkImageData::New()' with your texture image data
+
+				// Create the mapper, actor, and renderer for the plane mesh
+				vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+				mapper->SetInputConnection(planeSource->GetOutputPort());
+
+				vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
+				actor->SetMapper(mapper);
+//				actor->SetTexture(texture);
+
+				vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+				renderer->AddActor(actor);
+
+				
+
+
 				resetActors = false;
 			}
 			

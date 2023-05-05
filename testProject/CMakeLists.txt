@@ -32,10 +32,13 @@ set(PROJECT_SOURCES
 	 
 )
 
+
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(testProject
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+       
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET testProject APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -45,12 +48,14 @@ else()
     if(ANDROID)
         add_library(testProject SHARED
             ${PROJECT_SOURCES}
+            ${APP_ICON_RESOURCE_WINDOWS}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(testProject
             ${PROJECT_SOURCES}
+          
         )
     endif()
 endif()
@@ -85,20 +90,32 @@ COMMAND ${CMAKE_COMMAND} -E
 
 include(InstallRequiredSystemLibraries) 
 set(CPACK_PACKAGE_NAME "stl_file_renderer") 
-#set(CPACK_PACKAGE_VERSION "1.0.0") 
-#set(CPACK_PACKAGE_CONTACT "Your Name your.email@example.com") 
-#set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "stl file renderer - A short description") 
-#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt") 
-set(CPACK_GENERATOR "NSIS") 
+set(CPACK_PACKAGE_VENDOR "Group 5")
+set(CPACK_GENERATOR "NSIS")
+
 # Use NSIS for a Windows installer 
+
+# "Add to the path"" option and add the shortcut to the desktop
+set(CPACK_NSIS_MODIFY_PATH ON)
+set(CPACK_CREATE_DESKTOP_LINKS testProject)
+
+# Start menu addition 
+set(CPACK_PACKAGE_EXECUTABLES "testProject" "stl_file_renderer")
+
 include(CPack)
 install(TARGETS testProject RUNTIME DESTINATION bin)
-#install(FILES "D:/software/6.4.2/msvc2019_64/bin/Qt6Core.dll" DESTINATION bin) 
-install(DIRECTORY "D:/software/6.4.2/msvc2019_64/bin" DESTINATION QT COMPONENT QT PATTERN "*.exe" EXCLUDE ) 
-install(DIRECTORY "C:/Program Files (x86)/VTK/bin" DESTINATION VTK COMPONENT VTK PATTERN "*.exe" EXCLUDE )
+
+
+
+install(DIRECTORY "D:/software/6.4.2/msvc2019_64/bin" DESTINATION QT COMPONENT QT PATTERN "*.dll") 
+install(DIRECTORY "D:/software/6.4.2/msvc2019_64/plugins" DESTINATION QT COMPONENT QT FILES_MATCHING PATTERN "*.dll")
+install(DIRECTORY "C:/Program Files (x86)/VTK/bin" DESTINATION VTK COMPONENT VTK PATTERN "*.dll")
+install(DIRECTORY "D:/docs/Y2 ECE/Practical/COMPUTER/VTK/openvr/bin" DESTINATION OpenVR COMPONENT OPENVR FILES_MATCHING PATTERN "*.dll")
 install(DIRECTORY "C:/Users/izzy/Downloads/Level0/Level0" DESTINATION example_stl_files COMPONENT example_stl_files)
 
-cpack_add_component(VTK)
-cpack_add_component(QT)
-cpack_add_component(example_stl_files)
+cpack_add_component_group(Libraries DESCRIPTION "Libraries required")
+cpack_add_component(VTK DISPLAY_NAME "VTK Libraries" DESCRIPTION "Qt dynamic libraries" GROUP Libraries)
+cpack_add_component(QT DISPLAY_NAME "QT Libraries" DESCRIPTION "VTK dynamic libraries" GROUP Libraries)
+cpack_add_component(OpenVR DISPLAY_NAME "OpenVR" DESCRIPTION "OpenVR dynamic libraries"GROUP Libraries)
+cpack_add_component(example_stl_files DISPLAY_NAME "sample files" DESCRIPTION "sample files for software")
 
