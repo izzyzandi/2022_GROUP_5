@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton2);
     connect(ui->checkBox, &QCheckBox::released, this, &MainWindow::checkbox1);
     connect(ui->checkBox_2, &QCheckBox::released, this, &MainWindow::checkbox2);
+    connect(ui->XSlider, &QSlider::valueChanged, this, &MainWindow::XSlider);
+    connect(ui->YSlider, &QSlider::valueChanged, this, &MainWindow::YSlider);
+    connect(ui->ZSlider, &QSlider::valueChanged, this, &MainWindow::ZSlider);
  
 
     // Connect the signal for when an item in the tree view is clicked to a slot in the main window class
@@ -185,7 +188,10 @@ void MainWindow::checkbox2() {
         selectedPart->setFilterAndActor(x, y);
     }
     updateRender();
+    
 }
+
+void MainWindow::
 
 void MainWindow::handleTreeClick() {
     /* Get the index of the selected item*/

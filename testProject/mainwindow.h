@@ -80,6 +80,10 @@ public slots:
     void checkbox1();
     void checkbox2();
 
+    void XSlider();
+    void YSlider();
+    void ZSlider();
+
     /**
     *   @brief It is a slot function which has the ability to handle the tree-view event
     */
