@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-color:#846aa6;""color:black;");
     // Add an action to the context menu of the tree view
     ui->treeView->addAction(ui->actionItem_Options);
 
