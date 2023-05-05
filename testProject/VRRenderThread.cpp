@@ -188,19 +188,21 @@ void VRRenderThread::run() {
 			/* X Rotation */
 			actorList->InitTraversal();
 			while ((a = (vtkActor*)actorList->GetNextActor())) {
-				a->RotateX(rotateX);
+				//a->RotateX(rotateX);
+				a->SetOrientation(rotateX, rotateY, rotateZ);
 			}
 
 			/* Y Rotation */
 			actorList->InitTraversal();
 			while ((a = (vtkActor*)actorList->GetNextActor())) {
-				a->RotateY(rotateY);
+				//a->RotateY(rotateY);
+
 			}
 
 			/* Z Rotation */
 			actorList->InitTraversal();
 			while ((a = (vtkActor*)actorList->GetNextActor())) {
-				a->RotateZ(rotateZ);
+				//a->RotateZ(rotateZ);
 			}
 
 			if (resetActors) {

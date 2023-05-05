@@ -226,12 +226,12 @@ void MainWindow::XSlider() {
 void MainWindow::YSlider() {
     int YRotation = ui->YSlider->value();
     if (VRThread && VRThread->isRunning())
-        VRThread->issueCommand(1, (double)YRotation);
+        VRThread->issueCommand(2, (double)YRotation);
 }
 void MainWindow::ZSlider() {
     int ZRotation = ui->ZSlider->value();
     if (VRThread && VRThread->isRunning())
-        VRThread->issueCommand(1, (double)ZRotation);
+        VRThread->issueCommand(3, (double)ZRotation);
 }
 
 void MainWindow::handleTreeClick() {
