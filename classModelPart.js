@@ -7,6 +7,8 @@ var classModelPart =
     [ "childCount", "classModelPart.html#aea4bb035b2b3827c0abf677fb9dc68ce", null ],
     [ "columnCount", "classModelPart.html#a94623f4e95be3c462297c1abc7b6f3c7", null ],
     [ "data", "classModelPart.html#a178655da543bd0dae2d0ed1e2ea38a56", null ],
+    [ "get_clip", "classModelPart.html#a5226909b63fb74ade803013c5abc9ec8", null ],
+    [ "get_shrink", "classModelPart.html#a3eef914682976986551b31331ee4974a", null ],
     [ "get_visible", "classModelPart.html#ada18f1720e2325078284da05e7830294", null ],
     [ "getActor", "classModelPart.html#a3d845a3cb1d357a0c2f4ffb131e73116", null ],
     [ "getColourB", "classModelPart.html#a2cae1e4fd951f1a5f62b93a7f9c68521", null ],
@@ -18,11 +20,14 @@ var classModelPart =
     [ "parentItem", "classModelPart.html#a9be3859d2a298e88d850a2480b7639f7", null ],
     [ "row", "classModelPart.html#a05bc0dd06a3658d9a2c46fa717dec910", null ],
     [ "set", "classModelPart.html#a3232893d070ddcec42631bf5b043add8", null ],
+    [ "set_clip", "classModelPart.html#a7682c874c740f7fc5f3183ea2561719f", null ],
+    [ "set_shrink", "classModelPart.html#a4e5853d4ad36147fcff648a23c2fe0d3", null ],
     [ "setColour", "classModelPart.html#abbaaa19d7d24b9f1138072d594bd838c", null ],
     [ "setFilterAndActor", "classModelPart.html#a547a8f5eca9a958acc4ace0da2a5961a", null ],
     [ "setVisible", "classModelPart.html#a96c8cca32bd530bf28c6ab6a1ccc2353", null ],
     [ "visible", "classModelPart.html#a6ae791107c322f3e729a8de69257fa4b", null ],
     [ "actor", "classModelPart.html#aa0bc06d06f0976fef26bcbd721e71784", null ],
+    [ "clip", "classModelPart.html#a0958f2c2f73013f99897520828f8c33a", null ],
     [ "colour", "classModelPart.html#aebb30cc701a3132c91fe7cfb651366fe", null ],
     [ "file", "classModelPart.html#a852283506443761fb7b7f96588878e45", null ],
     [ "isVisible", "classModelPart.html#afb6c0b2de4c0c4578d6a30ade18bada1", null ],
@@ -33,5 +38,6 @@ var classModelPart =
     [ "name", "classModelPart.html#addf760c0844b3ab181de7eaa9f1c3a30", null ],
     [ "RGB1", "classModelPart.html#afd6df41f7dd04d7f190d8d3ec1f2bab3", null ],
     [ "RGB2", "classModelPart.html#a21a21cf5cec26432324a7541eec1b08f", null ],
-    [ "RGB3", "classModelPart.html#a6358c100009e49dcac207f0b68be170b", null ]
+    [ "RGB3", "classModelPart.html#a6358c100009e49dcac207f0b68be170b", null ],
+    [ "shrink", "classModelPart.html#a30689751611c3456a047feaff0fa397e", null ]
 ];

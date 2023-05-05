@@ -6,6 +6,8 @@ var classMainWindow =
     [ "changeColour", "classMainWindow.html#a494094a6550b91f808a64f5bf792170a", null ],
     [ "checkbox1", "classMainWindow.html#aa8a410c2eedf0e8ea4db42c9da4ae535", null ],
     [ "checkbox2", "classMainWindow.html#a551acd2966e9acdc6e16345954a44aa2", null ],
+    [ "get_x", "classMainWindow.html#aea848567c3706f7ac5c0b940f8a41a3f", null ],
+    [ "get_y", "classMainWindow.html#a8825f2cf03785f9bfc4490bd7c3d70f5", null ],
     [ "handleButton", "classMainWindow.html#a132f0e713c1a2e43662407ad9858f933", null ],
     [ "handleButton2", "classMainWindow.html#accf7f1ca023168f0c31d2f9580e8acab", null ],
     [ "handleTreeClick", "classMainWindow.html#a881c9312ae7d4cff66ff3b63f2616a62", null ],
